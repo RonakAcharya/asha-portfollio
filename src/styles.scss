@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  body.dark-mode .navbar, body.dark-mode .footer {
+    background: #333333 !important;
+  }
+  body.dark-mode .contact-info, body.dark-mode .card {
+    background: #1e1e1e;
+    color: #ffffff;
+  }
+  body.dark-mode .btn-outline-dark {
+    color: white;
+    border-color: white;
+  }
