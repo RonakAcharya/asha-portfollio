@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import AOS from 'aos';
 declare var bootstrap: any;
+declare let L: any;
 
 @Component({
   selector: 'app-root',
@@ -17,12 +18,24 @@ export class AppComponent {
   fullText = 'I Am Asha - Service Beyond Your Imagination';
   currentIndex = 0;
   isDarkMode = false;
+  map: any;
 
   activeSection: string = 'about';
 
   ngOnInit(): void {
     this.startTypingEffect();
     AOS.init({ duration: 1000 });
+  }
+
+  ngAfterViewInit() {
+    this.initMap();
+  
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      setTimeout(() => {
+        this.map.invalidateSize();
+      }, 300);
+    });
   }
 
   startTypingEffect() {
@@ -55,6 +68,42 @@ export class AppComponent {
       const bsCollapse = new bootstrap.Collapse(navbar);
       bsCollapse.hide();
     }
+  }
+
+  initMap() {
+    this.map = L.map('mapid').setView([22.2587, 71.1924], 5);
+  
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '© OpenStreetMap'
+    }).addTo(this.map);
+  
+    const customIcon = L.divIcon({
+      className: 'custom-div-icon',
+      html: `<div style="background-color:#b48e00;width:20px;height:20px;border-radius:50%;border:2px solid white;"></div>`,
+      iconSize: [30, 42],
+      iconAnchor: [15, 42]
+    });
+  
+    const locations = [
+      { lat: 22.2587, lng: 71.1924, name: 'Gujarat' },
+      { lat: 27.0238, lng: 74.2179, name: 'Rajasthan' },
+      { lat: 15.3173, lng: 75.7139, name: 'Karnataka' },
+      { lat: 22.9734, lng: 78.6569, name: 'Madhya Pradesh' },
+      { lat: 19.7515, lng: 75.7139, name: 'Maharashtra' },
+      { lat: 18.1124, lng: 79.0193, name: 'Telangana' }
+    ];
+  
+    locations.forEach(location => {
+      L.marker([location.lat, location.lng], { icon: customIcon })
+        .addTo(this.map)
+        .bindPopup(location.name);
+    });
+  
+    // Force the map to redraw correctly
+    setTimeout(() => {
+      this.map.invalidateSize();
+    }, 500);
   }
   
 }

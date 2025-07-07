@@ -1,4 +1,5 @@
 <div class="portfolio" [ngClass]="{'dark-mode': isDarkMode}">
+
   <!-- Header with Logo, Dark/Light Mode Toggle, and Mobile Menu -->
   <header class="header navbar navbar-expand-lg navbar-dark bg-gradient">
     <div class="container-fluid">
@@ -14,123 +15,211 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'about'}" href="#about" (click)="closeNavbar()"><i class="fas fa-user me-1"></i> About</a></li>
-          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'services'}" href="#services" (click)="closeNavbar()"><i class="fas fa-cogs me-1"></i> Services</a></li>
-          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'projects'}" href="#projects" (click)="closeNavbar()"><i class="fas fa-briefcase me-1"></i> Projects</a></li>
-          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'contact'}" href="#contact" (click)="closeNavbar()"><i class="fas fa-envelope me-1"></i> Contact</a></li>
+          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'about'}" href="#about" (click)="closeNavbar()">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'services'}" href="#services" (click)="closeNavbar()">Services</a></li>
+          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'products'}" href="#products" (click)="closeNavbar()">Products</a></li>
+          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'technologies'}" href="#technologies" (click)="closeNavbar()">Technologies</a></li>
+          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'culture'}" href="#culture" (click)="closeNavbar()">Culture</a></li>
+          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'projects'}" href="#projects" (click)="closeNavbar()">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'map'}" href="#map" (click)="closeNavbar()">Map</a></li>
+          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'contact'}" href="#contact" (click)="closeNavbar()">Contact</a></li>
         </ul>
       </div>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero hero-bg animate__animated animate__fadeIn d-flex align-items-center justify-content-center text-center">
+  <section class="hero hero-bg d-flex align-items-center justify-content-center text-center">
     <div class="hero-content">
-      <h1 class="display-4 fw-bold mb-3">Hello <span class="wave">👋</span></h1>
-      <h2 class="mb-4 text-typing">{{ typingText }}</h2>
-      <a href="#contact" class="btn btn-warning btn-lg mt-3">Contact Me</a>
-      <div class="social-icons mt-4">
-        <a href="#" target="_blank"><i class="fab fa-linkedin fa-2x me-3"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-github fa-2x me-3"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-facebook fa-2x me-3"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
-      </div>
+      <h1 class="display-4 fw-bold mb-3">Innovating Your Business</h1>
+      <h2 class="mb-4 text-typing">Empowering Growth with Technology</h2>
+      <a href="#contact" class="btn btn-warning btn-lg mt-3">Book a Demo</a>
     </div>
   </section>
 
   <!-- About Us -->
   <section id="about" class="section about container py-5" data-aos="fade-up">
     <h2 class="text-center mb-4">About Us</h2>
-    <div class="about-content text-center">
-      <p>We are a professional team working in Assessments and Audits, including educational, skill-based, and government assessments.</p>
-      <p><strong>Our Objective:</strong> To enhance employee skill assessments and deliver world-class standards with customized solutions.</p>
+    <div class="row align-items-center">
+      <div class="col-lg-6 text-center">
+        <i class="fas fa-building fa-7x text-theme mb-4"></i>
+      </div>
+      <div class="col-lg-6">
+        <p>We are a trusted company specializing in Assessments, Audits, Software Development, and Digital Solutions.</p>
+        <p><strong>Vision:</strong> To deliver innovative, scalable, and reliable technology solutions worldwide.</p>
+        <p><strong>Mission:</strong> To empower businesses with skill assessments, digital marketing, and cutting-edge applications.</p>
+        <a href="#technologies" class="btn btn-warning mt-3 btn-flex">Our Technologies</a>
+      </div>
     </div>
   </section>
 
   <!-- Services -->
   <section id="services" class="section services container py-5">
-    <h2 class="text-center mb-4">Our Services</h2>
-    <div class="row g-4">
-      <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up">
-        <div class="card h-100 text-center p-4 service-card animate__animated animate__fadeInUp">
-          <i class="fas fa-laptop-code fa-3x mb-3 text-theme"></i>
-          <h4>Laptop, Mobile, Tablet Assessments</h4>
-          <p>Device-based assessments with modern tools and techniques.</p>
-        </div>
+    <h2 class="text-center mb-5">Our Services</h2>
+    <div class="row g-5">
+      <div class="col-md-6 d-flex align-items-center" data-aos="fade-right">
+        <i class="fas fa-laptop-code fa-7x text-danger mx-auto"></i>
       </div>
-      <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up">
-        <div class="card h-100 text-center p-4 service-card animate__animated animate__fadeInUp">
-          <i class="fas fa-file-alt fa-3x mb-3 text-theme"></i>
-          <h4>OMR Sheet Based Applications</h4>
-          <p>Skill assessments using OMR sheets for accurate results.</p>
-        </div>
+      <div class="col-md-6" data-aos="fade-left">
+        <h3>Software & Web Development</h3>
+        <p>Building modern web and mobile applications using React, Angular, Node.js, Python, MongoDB, Bootstrap, and HTML5 with Agile methodology.</p>
       </div>
-      <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up">
-        <div class="card h-100 text-center p-4 service-card animate__animated animate__fadeInUp">
-          <i class="fas fa-user-check fa-3x mb-3 text-theme"></i>
-          <h4>Application Based Physical Verification</h4>
-          <p>On-site verification with systematic tracking and reporting.</p>
-        </div>
+
+      <div class="col-md-6 order-md-2 d-flex align-items-center" data-aos="fade-left">
+        <i class="fas fa-mobile-alt fa-7x text-primary mx-auto"></i>
       </div>
-      <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up">
-        <div class="card h-100 text-center p-4 service-card animate__animated animate__fadeInUp">
-          <i class="fas fa-chart-line fa-3x mb-3 text-theme"></i>
-          <h4>Systematic Monitoring & Quality Results</h4>
-          <p>Delivering high-quality results with continuous monitoring.</p>
-        </div>
+      <div class="col-md-6 order-md-1" data-aos="fade-right">
+        <h3>Website & App Development</h3>
+        <p>Responsive websites and cross-platform mobile apps (iOS, Android, Flutter) with top-notch UX/UI design and maintenance support.</p>
       </div>
+
+      <div class="col-md-6 d-flex align-items-center" data-aos="fade-right">
+        <i class="fas fa-users fa-7x text-success mx-auto"></i>
+      </div>
+      <div class="col-md-6" data-aos="fade-left">
+        <h3>Dedicated Team Providers</h3>
+        <p>Offering dedicated technology teams with flexible engagement models for long-term collaboration.</p>
+      </div>
+
+      <div class="col-md-6 order-md-2 d-flex align-items-center" data-aos="fade-left">
+        <i class="fas fa-bullhorn fa-7x text-warning mx-auto"></i>
+      </div>
+      <div class="col-md-6 order-md-1" data-aos="fade-right">
+        <h3>Digital Marketing</h3>
+        <p>SEO, SEM, social media marketing, content marketing, and full digital growth strategies.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products" class="section products container py-5">
+    <h2 class="text-center mb-5">Our Products</h2>
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 text-center" data-aos="fade-right">
+        <i class="fas fa-chart-line fa-7x text-theme"></i>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <h3>Assessment Platforms</h3>
+        <p>Smart assessment solutions with real-time analytics, OMR processing, and customizable reporting tools. Book your demo today.</p>
+        <a href="#contact" class="btn btn-warning mt-3 btn-flex">Book a Demo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technologies -->
+  <section id="technologies" class="section technologies container py-5">
+    <h2 class="text-center mb-5">Our Technology Stack</h2>
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-4 text-center">
+      <div class="col" data-aos="fade-up">
+        <i class="fab fa-angular fa-7x text-danger mb-3"></i>
+        <h5>Angular</h5>
+      </div>
+      <div class="col" data-aos="fade-up">
+        <i class="fab fa-react fa-7x text-info mb-3"></i>
+        <h5>React</h5>
+      </div>
+      <div class="col" data-aos="fade-up">
+        <i class="fab fa-vuejs fa-7x text-success mb-3"></i>
+        <h5>Vue.js</h5>
+      </div>
+      <div class="col" data-aos="fade-up">
+        <i class="fab fa-node-js fa-7x text-success mb-3"></i>
+        <h5>Node.js</h5>
+      </div>
+      <div class="col" data-aos="fade-up">
+        <i class="fab fa-php fa-7x text-primary mb-3"></i>
+        <h5>PHP</h5>
+      </div>
+      <div class="col" data-aos="fade-up">
+        <i class="fab fa-js-square fa-7x text-warning mb-3"></i>
+        <h5>JavaScript</h5>
+      </div>
+      <div class="col" data-aos="fade-up">
+        <i class="fab fa-python fa-7x text-primary mb-3"></i>
+        <h5>Python</h5>
+      </div>
+      <div class="col" data-aos="fade-up">
+        <i class="fab fa-html5 fa-7x text-warning mb-3"></i>
+        <h5>HTML5</h5>
+      </div>
+      <div class="col" data-aos="fade-up">
+        <i class="fab fa-css3-alt fa-7x text-info mb-3"></i>
+        <h5>CSS3</h5>
+      </div>
+      <div class="col" data-aos="fade-up">
+        <i class="fab fa-swift fa-7x text-danger mb-3"></i>
+        <h5>Swift</h5>
+      </div>
+      <div class="col" data-aos="fade-up">
+        <i class="fab fa-java fa-7x text-danger mb-3"></i>
+        <h5>Java</h5>
+      </div>
+      <div class="col" data-aos="fade-up">
+        <i class="fab fa-android fa-7x text-success mb-3"></i>
+        <h5>Android</h5>
+      </div>
+    </div>
+  </section>
+
+  <!-- Culture -->
+  <section id="culture" class="section culture container py-5">
+    <h2 class="text-center mb-5">Our Culture</h2>
+    <div class="text-center" data-aos="fade-up">
+      <i class="fas fa-heart fa-7x text-danger mb-4"></i>
+      <p>We foster a culture of innovation, collaboration, continuous learning, and employee growth with a positive work environment across India and Congo.</p>
     </div>
   </section>
 
   <!-- Projects -->
   <section id="projects" class="section projects container py-5">
-    <h2 class="text-center mb-4">Major Projects</h2>
-    <div class="row g-4">
-      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
-        <div class="card h-100 text-center p-4 project-card animate__animated animate__fadeInUp">
-          <i class="fas fa-seedling fa-2x mb-3 text-theme"></i>
-          <h5 class="card-title">AGRI INSURANCE TPI WORK</h5>
-          <p class="card-text">2018-2021</p>
-        </div>
+    <h2 class="text-center mb-5">Major Projects</h2>
+    <div class="row g-5">
+      <div class="col-md-4 text-center" data-aos="fade-up">
+        <i class="fas fa-seedling fa-5x text-theme mb-3"></i>
+        <h4>AGRI INSURANCE TPI WORK</h4>
+        <p>2018-2021 | Large-scale assessment and verification across multiple regions.</p>
       </div>
-      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
-        <div class="card h-100 text-center p-4 project-card animate__animated animate__fadeInUp">
-          <i class="fas fa-cloud-sun fa-2x mb-3 text-theme"></i>
-          <h5 class="card-title">SKYMET WEATHER PVT. LTD</h5>
-          <p class="card-text">BOMBAY</p>
-        </div>
+      <div class="col-md-4 text-center" data-aos="fade-up">
+        <i class="fas fa-recycle fa-5x text-theme mb-3"></i>
+        <h4>SWACHH BHARAT MISSION</h4>
+        <p>2018-2023 | Quality monitoring, real-time reporting, and national dashboard management.</p>
       </div>
-      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
-        <div class="card h-100 text-center p-4 project-card animate__animated animate__fadeInUp">
-          <i class="fas fa-recycle fa-2x mb-3 text-theme"></i>
-          <h5 class="card-title">SWACHH BHARAT MISSION</h5>
-          <p class="card-text">2018-2023</p>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
-        <div class="card h-100 text-center p-4 project-card animate__animated animate__fadeInUp">
-          <i class="fas fa-star fa-2x mb-3 text-theme"></i>
-          <h5 class="card-title">GARBAGE FREE CITY STAR RATING</h5>
-          <p class="card-text">2019-2023</p>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
-        <div class="card h-100 text-center p-4 project-card animate__animated animate__fadeInUp">
-          <i class="fas fa-map-marked-alt fa-2x mb-3 text-theme"></i>
-          <h5 class="card-title">QCI - GUJARAT TOURISM</h5>
-          <p class="card-text">On-site Assessment</p>
-        </div>
+      <div class="col-md-4 text-center" data-aos="fade-up">
+        <i class="fas fa-map-marked-alt fa-5x text-theme mb-3"></i>
+        <h4>QCI – GUJARAT TOURISM</h4>
+        <p>On-site assessments to enhance tourism standards and improve reporting structures.</p>
       </div>
     </div>
+  </section>
+
+  <!-- Map -->
+  <section id="map" class="section map container py-5">
+    <h2 class="text-center mb-5">Our Presence</h2>
+    <div id="mapid" style="width: 100%; height: 500px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); animation: fadeIn 1s ease-in-out;"></div>
   </section>
 
   <!-- Contact -->
   <section id="contact" class="section contact container py-5" data-aos="fade-up">
     <h2 class="text-center mb-4">Contact Us</h2>
-    <div class="contact-info text-center p-4 rounded shadow" [ngClass]="{'bg-light': !isDarkMode, 'bg-dark text-white': isDarkMode}">
+    <form class="contact-info text-center p-4 rounded shadow" [ngClass]="{'bg-light': !isDarkMode, 'bg-dark text-white': isDarkMode}">
+      <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Your Name" required>
+      </div>
+      <div class="mb-3">
+        <input type="email" class="form-control" placeholder="Your Email" required>
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Your Phone Number" required>
+      </div>
+      <div class="mb-3">
+        <textarea class="form-control" rows="4" placeholder="Project Details" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-warning">Submit</button>
+    </form>
+    <div class="text-center mt-4">
       <p><i class="fas fa-phone me-2 text-theme"></i> 82007 87105 / 79848 17343</p>
       <p><i class="fas fa-envelope me-2 text-theme"></i> {{email}}</p>
-      <p><i class="fas fa-map-marker-alt me-2 text-theme"></i> 3rd Floor, Nakshatra Complex, Shahid Arjun Road, Upleta-360490</p>
+      <p><i class="fas fa-map-marker-alt me-2 text-theme"></i> India | Congo</p>
     </div>
   </section>
 
@@ -138,4 +227,5 @@
   <footer class="footer bg-dark text-white text-center py-3">
     © 2025 3rd Eye Services. All rights reserved.
   </footer>
+
 </div>
