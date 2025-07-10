@@ -6,7 +6,7 @@
 
 .dark-mode .navbar,
 .dark-mode .footer {
-  background: #333333 !important;
+  background: linear-gradient(to right, #1a1a1a, #333333, #1a1a1a) !important;
 }
 
 .dark-mode .contact-info {
@@ -17,6 +17,26 @@
 .dark-mode .btn-outline-dark {
   color: white;
   border-color: white;
+}
+
+.dark-mode .service-card,
+.dark-mode .project-card,
+.dark-mode .contact-info {
+  background: #1e1e1e;
+  color: #f0f0f0;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .hero-bg::after {
+  background: rgba(0, 0, 0, 0.3);
+}
+.dark-mode .text-theme,
+.dark-mode .section h2 {
+  color: #f6e27f;
+}
+
+.dark-mode .fab {
+  color: #f6e27f;
 }
 
 /* Navbar */
@@ -39,7 +59,7 @@
 }
 
 .navbar {
-  background: linear-gradient(to right, #b48e00, #f6e27f, #ffda77) !important;
+  background: linear-gradient(to right, #0B0F1A, #005DAB, #CBA135) !important;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -57,7 +77,7 @@
 }
 
 .hero-bg {
-  background: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1500&q=80') no-repeat center center;
+  background: url('/bg2.jpg') no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
   min-height: 90vh;
@@ -277,7 +297,7 @@
 
 @media (max-width: 992px) {
   .navbar-collapse {
-    background: linear-gradient(120deg, #b48e00, #f6e27f) !important;
+    background: linear-gradient(to right, #0B0F1A, #005DAB, #CBA135) !important;
     padding: 10px;
     border-radius: 10px;
   }
@@ -286,4 +306,17 @@
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+.portfolio {
+  transition: background-color 0.3s, color 0.3s;
+}
+body, .portfolio, .navbar, .section, .card, .footer, .hero {
+  transition: all 0.3s ease-in-out;
+}
+.counter {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #b48e00;
+  transition: color 0.3s;
 }

@@ -19,3 +19,25 @@ body {
     color: white;
     border-color: white;
   }
+
+  :root {
+    --bg: #ffffff;
+    --text: #000000;
+    --card-bg: #f9f9f9;
+  }
+  
+  .dark-mode {
+    --bg: #121212;
+    --text: #ffffff;
+    --card-bg: #1e1e1e;
+  }
+  
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+  }
+  
+  .card {
+    background-color: var(--card-bg);
+  }
+  

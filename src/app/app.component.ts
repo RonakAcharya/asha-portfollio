@@ -29,7 +29,7 @@ export class AppComponent {
 
   ngAfterViewInit() {
     this.initMap();
-  
+    this.initCounterObserver();
     // Handle window resize
     window.addEventListener('resize', () => {
       setTimeout(() => {
@@ -53,6 +53,7 @@ export class AppComponent {
   // Scroll spy to highlight active menu
   @HostListener('window:scroll', [])
   onWindowScroll() {
+    this.initCounterObserver();
     const sections = ['about', 'services', 'projects', 'contact'];
     for (let section of sections) {
       const element = document.getElementById(section);
@@ -106,4 +107,40 @@ export class AppComponent {
     }, 500);
   }
   
+  initCounterObserver() {
+    const counters = document.querySelectorAll<HTMLElement>('.counter');
+  
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        const counter = entry.target as HTMLElement;
+  
+        if (entry.isIntersecting && !counter.classList.contains('counted')) {
+          const targetStr = counter.getAttribute('data-target');
+          if (!targetStr) return;
+  
+          const target = parseInt(targetStr, 10);
+          if (isNaN(target)) return;
+  
+          counter.classList.add('counted'); // prevent double counting
+  
+          const updateCount = () => {
+            const current = parseInt(counter.innerText, 10) || 0;
+            const increment = Math.ceil(target / 200);
+  
+            if (current < target) {
+              counter.innerText = (current + increment).toString();
+              setTimeout(updateCount, 15);
+            } else {
+              counter.innerText = target.toString();
+              obs.unobserve(counter); // optional: stop observing
+            }
+          };
+  
+          updateCount();
+        }
+      });
+    }, { threshold: 0.5 });
+  
+    counters.forEach(counter => observer.observe(counter));
+  }
 }
