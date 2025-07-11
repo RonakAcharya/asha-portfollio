@@ -154,13 +154,16 @@ export class AppComponent {
   submitForm() {
     if (this.contactForm.valid) {
       const formData = this.contactForm.value;
-
+  
+      // Use 'text/plain' to avoid preflight request
       this._http.post(
         this.scriptURL,
-        formData,
+        JSON.stringify(formData), // send JSON manually
         {
-          headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-          responseType: 'text' // Google Apps Script returns plain text
+          headers: new HttpHeaders({
+            'Content-Type': 'text/plain' // triggers no preflight
+          }),
+          responseType: 'text'
         }
       ).subscribe({
         next: (res: any) => {
@@ -174,5 +177,5 @@ export class AppComponent {
       });
     }
   }
-
+  
 }
