@@ -11,18 +11,26 @@
         <i [class]="isDarkMode ? 'fas fa-sun' : 'fas fa-moon'"></i>
       </button>
 
-      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'about'}" href="#about" (click)="closeNavbar()">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'services'}" href="#services" (click)="closeNavbar()">Services</a></li>
-          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'products'}" href="#products" (click)="closeNavbar()">Products</a></li>
-          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'technologies'}" href="#technologies" (click)="closeNavbar()">Technologies</a></li>
-          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'projects'}" href="#projects" (click)="closeNavbar()">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'map'}" href="#map" (click)="closeNavbar()">Map</a></li>
-          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'contact'}" href="#contact" (click)="closeNavbar()">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'about'}" href="#about"
+              (click)="closeNavbar()">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'services'}"
+              href="#services" (click)="closeNavbar()">Services</a></li>
+          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'products'}"
+              href="#products" (click)="closeNavbar()">Products</a></li>
+          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'technologies'}"
+              href="#technologies" (click)="closeNavbar()">Technologies</a></li>
+          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'projects'}"
+              href="#projects" (click)="closeNavbar()">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'map'}" href="#map"
+              (click)="closeNavbar()">Map</a></li>
+          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'contact'}"
+              href="#contact" (click)="closeNavbar()">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -37,7 +45,7 @@
       <a href="#contact" class="btn btn-warning btn-lg mt-3">Book a Demo</a>
     </div>
   </section>
-  
+
   <!-- About Us -->
   <section id="about" class="section about container py-5" data-aos="fade-up">
     <h2 class="text-center mb-4">Who We Are</h2>
@@ -46,12 +54,15 @@
         <img src="bg1.jpg" alt="Our Team" class="img-fluid w-75" loading="lazy" />
       </div>
       <div class="col-lg-6">
-        <p class="lead">At <strong>3rd Eye Services</strong>, we’re more than just a tech company — we’re your innovation partner.</p>
-        <p>With deep roots in software development, digital solutions, and skill assessments, our team delivers reliable and scalable services tailored for startups, businesses, and enterprises across the globe.</p>
-        <p>Driven by a shared belief in creativity, collaboration, and continuous improvement, our people-first culture inspires breakthrough solutions and lasting client relationships.</p>
+        <p class="lead">At <strong>3rd Eye Services</strong>, we’re more than just a tech company — we’re your
+          innovation partner.</p>
+        <p>With deep roots in software development, digital solutions, and skill assessments, our team delivers reliable
+          and scalable services tailored for startups, businesses, and enterprises across the globe.</p>
+        <p>Driven by a shared belief in creativity, collaboration, and continuous improvement, our people-first culture
+          inspires breakthrough solutions and lasting client relationships.</p>
       </div>
     </div>
-  
+
     <div class="row text-center mb-5">
       <div class="col-md-4" data-aos="fade-up">
         <i class="fas fa-lightbulb fa-3x text-warning mb-3"></i>
@@ -61,20 +72,22 @@
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
         <i class="fas fa-rocket fa-3x text-danger mb-3"></i>
         <h5>Our Mission</h5>
-        <p>To empower businesses with smart assessments, agile digital solutions, and expert-driven development teams.</p>
+        <p>To empower businesses with smart assessments, agile digital solutions, and expert-driven development teams.
+        </p>
       </div>
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
         <i class="fas fa-users-cog fa-3x text-success mb-3"></i>
         <h5>Our Culture</h5>
-        <p>We foster a transparent, supportive, and innovative environment where every team member thrives and clients succeed.</p>
+        <p>We foster a transparent, supportive, and innovative environment where every team member thrives and clients
+          succeed.</p>
       </div>
     </div>
-  
+
     <div class="text-center">
       <a href="#services" class="btn btn-warning btn-lg mt-2">Explore Our Services</a>
     </div>
   </section>
-  
+
   <!-- <section id="about" class="section about container py-5" data-aos="fade-up">
     <h2 class="text-center mb-4">About Us</h2>
     <div class="row align-items-center">
@@ -99,7 +112,8 @@
       </div>
       <div class="col-md-6" data-aos="fade-left">
         <h3>Software & Web Development</h3>
-        <p>Building modern web and mobile applications using React, Angular, Node.js, Python, MongoDB, Bootstrap, and HTML5 with Agile methodology.</p>
+        <p>Building modern web and mobile applications using React, Angular, Node.js, Python, MongoDB, Bootstrap, and
+          HTML5 with Agile methodology.</p>
       </div>
 
       <div class="col-md-6 order-md-2 d-flex align-items-center" data-aos="fade-left">
@@ -107,7 +121,8 @@
       </div>
       <div class="col-md-6 order-md-1" data-aos="fade-right">
         <h3>Website & App Development</h3>
-        <p>Responsive websites and cross-platform mobile apps (iOS, Android, Flutter) with top-notch UX/UI design and maintenance support.</p>
+        <p>Responsive websites and cross-platform mobile apps (iOS, Android, Flutter) with top-notch UX/UI design and
+          maintenance support.</p>
       </div>
 
       <div class="col-md-6 d-flex align-items-center" data-aos="fade-right">
@@ -137,7 +152,8 @@
       </div>
       <div class="col-lg-6" data-aos="fade-left">
         <h3>Assessment Platforms</h3>
-        <p>Smart assessment solutions with real-time analytics, OMR processing, and customizable reporting tools. Book your demo today.</p>
+        <p>Smart assessment solutions with real-time analytics, OMR processing, and customizable reporting tools. Book
+          your demo today.</p>
         <a href="#contact" class="btn btn-warning mt-3 btn-flex">Book a Demo</a>
       </div>
     </div>
@@ -232,7 +248,9 @@
   <!-- Map -->
   <section id="map" class="section map container py-5">
     <h2 class="text-center mb-5">Our Presence</h2>
-    <div id="mapid" style="width: 100%; height: 500px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); animation: fadeIn 1s ease-in-out;"></div>
+    <div id="mapid"
+      style="width: 100%; height: 500px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); animation: fadeIn 1s ease-in-out;">
+    </div>
   </section>
 
   <section id="impact" class="section container py-5">
@@ -262,22 +280,24 @@
       </div>
     </div>
   </section>
-  
+
   <!-- Contact -->
   <section id="contact" class="section contact container py-5" data-aos="fade-up">
     <h2 class="text-center mb-4">Contact Us</h2>
-    <form class="contact-info text-center p-4 rounded shadow" [ngClass]="{'bg-light': !isDarkMode, 'bg-dark text-white': isDarkMode}">
+    <form [formGroup]="contactForm" (ngSubmit)="submitForm()" class="contact-info text-center p-4 rounded shadow"
+      [ngClass]="{'bg-light': !isDarkMode, 'bg-dark text-white': isDarkMode}">
       <div class="mb-3">
-        <input type="text" class="form-control" placeholder="Your Name" required>
+        <input type="text" class="form-control" formControlName="name" placeholder="Your Name" required>
       </div>
       <div class="mb-3">
-        <input type="email" class="form-control" placeholder="Your Email" required>
+        <input type="email" class="form-control" formControlName="email" placeholder="Your Email" required>
       </div>
       <div class="mb-3">
-        <input type="text" class="form-control" placeholder="Your Phone Number" required>
+        <input type="text" class="form-control" formControlName="phone" placeholder="Your Phone Number" required>
       </div>
       <div class="mb-3">
-        <textarea class="form-control" rows="4" placeholder="Project Details" required></textarea>
+        <textarea class="form-control" rows="4" formControlName="message" placeholder="Project Details"
+          required></textarea>
       </div>
       <button type="submit" class="btn btn-warning">Submit</button>
     </form>
@@ -299,7 +319,7 @@
       <p>
         <i class="fas fa-map-marker-alt me-2 text-theme"></i> India | Congo
       </p>
-    
+
       <div class="mt-3 d-flex justify-content-center gap-3">
         <a href="https://linkedin.com/company/3rdeyeservices" target="_blank" class="text-theme fs-4">
           <i class="fab fa-linkedin"></i>
@@ -318,7 +338,7 @@
         </a>
       </div>
     </div>
-    
+
   </section>
 
   <!-- Footer -->
