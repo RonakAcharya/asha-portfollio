@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, HostListener, inject } from '@angular/core';
+import { Component, ElementRef, HostListener, inject, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import AOS from 'aos';
 declare var bootstrap: any;
@@ -14,9 +14,10 @@ declare let L: any;
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  private scriptURL = 'https://script.google.com/macros/s/AKfycbx5Ozg3jfnZOIX6xypBdQiSDDhpcf5uf57O77Tp3roU6hKNOIFWXi3zbs0OVWowCfqU/exec'
+  protected scriptURL = 'https://script.google.com/macros/s/AKfycbx5Ozg3jfnZOIX6xypBdQiSDDhpcf5uf57O77Tp3roU6hKNOIFWXi3zbs0OVWowCfqU/exec'
   protected _http = inject(HttpClient);
   protected _fb = inject(FormBuilder);
+  @ViewChild('contactFormElement') contactFormElement!: ElementRef<HTMLFormElement>;
 
   contactForm: FormGroup;
   email = 'info@3rdeyeservice.com / thirdeyeservices22@yahoo.com';
@@ -153,29 +154,36 @@ export class AppComponent {
   /** @note submit form */
   submitForm() {
     if (this.contactForm.valid) {
-      const formData = this.contactForm.value;
-  
-      // Use 'text/plain' to avoid preflight request
-      this._http.post(
-        this.scriptURL,
-        JSON.stringify(formData), // send JSON manually
-        {
-          headers: new HttpHeaders({
-            'Content-Type': 'text/plain' // triggers no preflight
-          }),
-          responseType: 'text'
-        }
-      ).subscribe({
-        next: (res: any) => {
-          alert('Message sent successfully!');
-          this.contactForm.reset();
-        },
-        error: (err: any) => {
-          console.error('Error:', err);
-          alert('Error sending message. Please try again.');
-        }
-      });
+      this.contactFormElement.nativeElement.submit();
+      alert('Message sent successfully!');
+      this.contactForm.reset();
+    } else {
+      alert('Please fill all required fields correctly.');
     }
+    // if (this.contactForm.valid) {
+    //   const formData = this.contactForm.value;
+
+    //   // Use 'text/plain' to avoid preflight request
+    //   this._http.post(
+    //     this.scriptURL,
+    //     JSON.stringify(formData), // send JSON manually
+    //     {
+    //       headers: new HttpHeaders({
+    //         'Content-Type': 'text/plain' // triggers no preflight
+    //       }),
+    //       responseType: 'text'
+    //     }
+    //   ).subscribe({
+    //     next: (res: any) => {
+    //       alert('Message sent successfully!');
+    //       this.contactForm.reset();
+    //     },
+    //     error: (err: any) => {
+    //       console.error('Error:', err);
+    //       alert('Error sending message. Please try again.');
+    //     }
+    //   });
+    // }
   }
-  
+
 }
