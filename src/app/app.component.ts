@@ -21,7 +21,7 @@ export class AppComponent {
   @ViewChild('contactFormElement') contactFormElement!: ElementRef<HTMLFormElement>;
 
   contactForm: FormGroup;
-  email = 'info@3rdeyeservice.com / thirdeyeservices22@yahoo.com';
+  email = 'sales@thirdeyeservice.com';
 
   selectedAboutOption: string = '';
   currentIndex = 0;
