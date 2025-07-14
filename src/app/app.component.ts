@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, ElementRef, HostListener, inject, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Meta, Title } from '@angular/platform-browser';
 import AOS from 'aos';
 declare var bootstrap: any;
 declare let L: any;
@@ -22,19 +23,90 @@ export class AppComponent {
   contactForm: FormGroup;
   email = 'info@3rdeyeservice.com / thirdeyeservices22@yahoo.com';
 
+  selectedAboutOption: string = '';
   currentIndex = 0;
   isDarkMode = false;
   map: any;
 
-  activeSection: string = 'about';
+  activeSection: string = 'home';
 
-  constructor() {
+  bgImageMap: { [key: string]: string } = {
+    'about': 'about.jpg',
+    'team': 'team.jpg',
+    'culture': 'culture.jpg',
+    'ceo-message': 'ceo-msg.jpg'
+  };
+
+  teamMembers = [
+    {
+      name: 'Rahul Sharma',
+      position: 'Founder & CEO',
+      image: 'team1.jpg',
+      linkedin: 'https://linkedin.com/in/rahul',
+      twitter: ''
+    },
+    {
+      name: 'Priya Mehta',
+      position: 'CTO & Architect',
+      image: 'team2.jpg',
+      linkedin: '',
+      twitter: 'https://twitter.com/priyamehta'
+    },
+    {
+      name: 'Amit Patel',
+      position: 'Marketing Lead',
+      image: 'team3.jpg',
+      linkedin: 'https://linkedin.com/in/amit',
+      twitter: ''
+    }
+  ];
+  culturePoints = [
+    {
+      icon: 'fas fa-check-circle',
+      title: 'Systematic Monitoring',
+      description: 'We ensure each process is carefully tracked and optimized.'
+    },
+    {
+      icon: 'fas fa-user-shield',
+      title: 'Data Security',
+      description: 'Session monitoring & candidate security is our top priority.'
+    },
+    {
+      icon: 'fas fa-clipboard-check',
+      title: 'On-Time Delivery',
+      description: 'We follow deadlines strictly and prioritize quality results.'
+    },
+    {
+      icon: 'fas fa-lightbulb',
+      title: 'Digital Innovation',
+      description: 'We embrace automation & tech for smarter operations.'
+    },
+    {
+      icon: 'fas fa-users',
+      title: 'People First',
+      description: 'We foster a supportive, growth-focused work environment.'
+    },
+    {
+      icon: 'fas fa-globe',
+      title: 'Global Spirit',
+      description: 'Our reach spans across India, Congo, and beyond.'
+    }
+  ];
+
+
+  constructor(private title: Title, private meta: Meta) {
     this.contactForm = this._fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
       message: ['', Validators.required]
     });
+
+    this.title.setTitle('3rd Eye Services | Empowering Growth with Technology');
+    this.meta.addTags([
+      { name: 'description', content: 'We provide software development, assessment platforms, digital marketing & more.' },
+      { name: 'keywords', content: 'Angular, React, Node, Web Development, Digital Marketing, Assessment' }
+    ]);
   }
 
   ngOnInit(): void {
@@ -52,6 +124,10 @@ export class AppComponent {
     });
   }
 
+  get selectedBgImage(): string {
+    return this.bgImageMap[this.selectedAboutOption] || 'bg2.jpg';
+  }
+
   toggleDarkMode() {
     this.isDarkMode = !this.isDarkMode;
   }
@@ -59,23 +135,60 @@ export class AppComponent {
   // Scroll spy to highlight active menu
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.initCounterObserver();
-    const sections = ['about', 'services', 'projects', 'contact'];
-    for (let section of sections) {
-      const element = document.getElementById(section);
-      if (element && window.scrollY >= element.offsetTop - 100) {
-        this.activeSection = section;
+    const NAVBAR_HEIGHT = 80; // Adjust this to match your fixed header height
+  
+    const sections = [
+      'home', 'about', 'team', 'culture', 'ceo-message',
+      'services', 'products', 'technologies',
+      'projects', 'map', 'contact'
+    ];
+  
+    const scrollPosition = window.scrollY + NAVBAR_HEIGHT + 1; // Add 1 to avoid exact overlap issues
+  
+    let currentSection = 'home';
+  
+    for (const id of sections) {
+      const el = document.getElementById(id);
+      if (el) {
+        const sectionTop = el.offsetTop;
+        const sectionHeight = el.offsetHeight;
+  
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          currentSection = id;
+          break;
+        }
       }
+    }
+  
+    // Group all sub-sections under 'about'
+    if (['about', 'team', 'culture', 'ceo-message'].includes(currentSection)) {
+      this.activeSection = 'about';
+    } else {
+      this.activeSection = currentSection;
+    }
+  }
+  
+
+  closeNavbar(sectionId?: string) {
+    if (sectionId) {
+      this.selectedAboutOption = sectionId;
+      this.activeSection = sectionId;
+
+      // Wait for DOM to render the section before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 200); // Delay allows ngIf to render the section
+    }
+
+    const navbar = document.querySelector('.navbar-collapse');
+    if (navbar && navbar.classList.contains('show')) {
+      navbar.classList.remove('show');
     }
   }
 
-  closeNavbar() {
-    const navbar = document.getElementById('navbarNav');
-    if (navbar && navbar.classList.contains('show')) {
-      const bsCollapse = new bootstrap.Collapse(navbar);
-      bsCollapse.hide();
-    }
-  }
 
   initMap() {
     this.map = L.map('mapid').setView([22.2587, 71.1924], 5);
@@ -184,6 +297,10 @@ export class AppComponent {
     //     }
     //   });
     // }
+  }
+
+  isAboutChildActive(): boolean {
+    return ['about', 'team', 'culture', 'ceo-message'].includes(this.activeSection);
   }
 
 }

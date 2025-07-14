@@ -17,16 +17,40 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'about'}" href="#about"
-              (click)="closeNavbar()">About Us</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'about'}" href="#about"
+              (click)="closeNavbar()">About Us</a></li> -->
+          <!-- About Dropdown -->
+          <!-- Home Link -->
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{ 'active-link': activeSection === 'home' }" href="#home"
+              (click)="selectedAboutOption = '';closeNavbar()">Home</a>
+          </li>
+
+          <!-- About Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false" [ngClass]="{ 'active-link': activeSection === 'about' || isAboutChildActive() }">
+              Company
+            </a>
+            <ul class="dropdown-menu dropdown-custom" aria-labelledby="aboutDropdown">
+              <li><a class="dropdown-item" href="#about" (click)="closeNavbar('about')">About Us</a></li>
+              <li><a class="dropdown-item" href="#team" (click)="closeNavbar('team')">Our Team</a></li>
+              <li><a class="dropdown-item" href="#culture" (click)="closeNavbar('culture')">Culture</a></li>
+              <li><a class="dropdown-item" href="#ceo-message" (click)="closeNavbar('ceo-message')">Message from CEO</a>
+              </li>
+            </ul>
+          </li>
           <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'services'}"
-              href="#services" (click)="closeNavbar()">Services</a></li>
+              href="#services" (click)="closeNavbar()"
+              *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'">Services</a></li>
           <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'products'}"
-              href="#products" (click)="closeNavbar()">Products</a></li>
+              *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'" href="#products"
+              (click)="closeNavbar()">Products</a></li>
           <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'technologies'}"
               href="#technologies" (click)="closeNavbar()">Technologies</a></li>
           <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'projects'}"
-              href="#projects" (click)="closeNavbar()">Projects</a></li>
+              *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'" href="#projects"
+              (click)="closeNavbar()">Projects</a></li>
           <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'map'}" href="#map"
               (click)="closeNavbar()">Map</a></li>
           <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'contact'}"
@@ -37,8 +61,9 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero position-relative text-center">
-    <img src="bg2.jpg" alt="Hero Background" class="hero-img" />
+  <section class="hero position-relative text-center hero-bg"
+    [ngStyle]="{'background-image': 'url(' + selectedBgImage + ')', 'background-size': 'cover', 'background-position': 'center'}">
+    <!-- <img src="bg2.jpg" alt="Hero Background" class="hero-img" /> -->
     <div class="hero-content position-absolute top-50 start-50 translate-middle text-white">
       <h1 class="display-4 fw-bold mb-3">Innovating Your Business</h1>
       <h2 class="mb-4 text-typing">Empowering Growth with Technology</h2>
@@ -47,7 +72,67 @@
   </section>
 
   <!-- About Us -->
-  <section id="about" class="section about container py-5" data-aos="fade-up">
+  <!-- About Us Section - Shown Only When Selected -->
+  <section id="about" class="section about container py-5" data-aos="fade-up"
+    *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'">
+    <div class="row align-items-center flex-column-reverse flex-lg-row mb-5">
+      <!-- Text Block -->
+      <div class="col-lg-6 text-center text-lg-start">
+        <h2 class="mb-4 text-theme fw-bold">About Us</h2>
+        <p class="lead">
+          <strong>3rd Eye Services</strong> is not just a tech company, but your innovation partner.
+        </p>
+        <p>
+          We specialize in cutting-edge software solutions, assessments, and digital growth strategies tailored for
+          startups, enterprises, and government sectors globally.
+        </p>
+        <p>
+          Our commitment to transparency, collaboration, and excellence empowers businesses to scale faster and smarter.
+        </p>
+        <a href="#services" class="btn btn-warning mt-3 px-4 py-2">Explore Our Services</a>
+      </div>
+
+      <!-- Image Block -->
+      <div class="col-lg-6 mb-4 mb-lg-0 text-center">
+        <img src="about-team.jpg" alt="About Us Illustration" class="img-fluid about-img shadow" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Highlights -->
+    <div class="row gy-4">
+      <div class="col-6 col-md-3" data-aos="fade-up">
+        <div class="about-highlight-card text-center">
+          <i class="fas fa-lightbulb fa-2x text-warning mb-2"></i>
+          <h6 class="fw-bold">Innovation Driven</h6>
+          <p class="small">Creative & future-ready digital solutions.</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="about-highlight-card text-center">
+          <i class="fas fa-users-cog fa-2x text-primary mb-2"></i>
+          <h6 class="fw-bold">Agile Teams</h6>
+          <p class="small">Expert developers & designers at your fingertips.</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="about-highlight-card text-center">
+          <i class="fas fa-globe fa-2x text-success mb-2"></i>
+          <h6 class="fw-bold">Global Reach</h6>
+          <p class="small">Operations across India & global clients.</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="about-highlight-card text-center">
+          <i class="fas fa-award fa-2x text-danger mb-2"></i>
+          <h6 class="fw-bold">Trusted by Govt</h6>
+          <p class="small">Worked with ministries and national missions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- <section id="about" class="section about container py-5" data-aos="fade-up">
     <h2 class="text-center mb-4">Who We Are</h2>
     <div class="row align-items-center mb-5">
       <div class="col-lg-6 text-center">
@@ -86,7 +171,7 @@
     <div class="text-center">
       <a href="#services" class="btn btn-warning btn-lg mt-2">Explore Our Services</a>
     </div>
-  </section>
+  </section> -->
 
   <!-- <section id="about" class="section about container py-5" data-aos="fade-up">
     <h2 class="text-center mb-4">About Us</h2>
@@ -103,8 +188,81 @@
     </div>
   </section> -->
 
+  <section id="team" class="section team container py-5" data-aos="fade-up" *ngIf="selectedAboutOption === 'team'">
+    <h2 class="text-center mb-5">Meet Our Core Team</h2>
+
+    <div class="row g-4 justify-content-center">
+      <!-- Team Member -->
+      <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let member of teamMembers">
+        <div class="card team-card text-center">
+          <div class="team-img-wrapper">
+            <img [src]="member.image" [alt]="member.name" class="about-img" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title mb-1">{{ member.name }}</h5>
+            <p class="text-muted small">{{ member.position }}</p>
+            <div class="social-icons d-flex justify-content-center gap-3">
+              <a *ngIf="member.linkedin" [href]="member.linkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a *ngIf="member.twitter" [href]="member.twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="culture" class="section culture-section container py-5" data-aos="fade-up"
+    *ngIf="selectedAboutOption === 'culture'">
+    <h2 class="text-center fw-bold text-theme mb-5">Our Culture</h2>
+
+    <div class="row justify-content-center g-4">
+      <div class="col-md-6 col-lg-4" *ngFor="let item of culturePoints" data-aos="fade-up">
+        <div class="culture-card h-100 shadow-sm text-center p-4">
+          <div class="icon-box mb-3">
+            <i [class]="item.icon + ' fa-2x text-theme'"></i>
+          </div>
+          <h5 class="fw-semibold mb-2">{{ item.title }}</h5>
+          <p class="text-muted small">{{ item.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="ceo-message" class="section ceo-message container py-5" data-aos="fade-up"
+    *ngIf="selectedAboutOption === 'ceo-message'">
+    <div class="row gy-4 align-items-center flex-column-reverse flex-lg-row">
+
+      <!-- Text Column -->
+      <div class="col-lg-7 text-center text-lg-start">
+        <h2 class="fw-bold text-theme mb-3">Message from Our CEO</h2>
+        <p class="lead text-muted">
+          At <strong>3rd Eye Services</strong>, we believe technology is about empowering ideas, people, and
+          possibilities.
+        </p>
+        <p>
+          Our journey has been driven by innovation, integrity, and impact. Whether it's assessments, audits, or custom
+          applications, we stand for quality and trust.
+        </p>
+        <p>
+          Thank you for being part of our growth. Let's create smarter, scalable digital solutions—together.
+        </p>
+        <h5 class="fw-bold mt-4 mb-1">– Mr. Vishal Hindocha</h5>
+        <small class="text-muted">Founder & CEO</small>
+      </div>
+
+      <!-- Image Column -->
+      <div class="col-lg-5 text-center">
+        <img src="team1.jpg" alt="CEO Vishal Hindocha" class="ceo-img img-fluid rounded shadow" loading="lazy" />
+      </div>
+
+    </div>
+  </section>
+
+
   <!-- Services -->
-  <section id="services" class="section services container py-5">
+  <section id="services" class="section services container py-5"
+    *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'">
     <h2 class="text-center mb-5">Our Services</h2>
     <div class="row g-5">
       <div class="col-md-6 d-flex align-items-center" data-aos="fade-right">
@@ -144,7 +302,8 @@
   </section>
 
   <!-- Products -->
-  <section id="products" class="section products container py-5">
+  <section id="products" class="section products container py-5"
+    *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'">
     <h2 class="text-center mb-5">Our Products</h2>
     <div class="row g-5 align-items-center">
       <div class="col-lg-6 text-center" data-aos="fade-right">
@@ -164,51 +323,51 @@
     <h2 class="text-center mb-5">Our Technology Stack</h2>
     <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-4 text-center">
       <div class="col" data-aos="fade-up">
-        <i class="fab fa-angular fa-7x text-danger mb-3"></i>
+        <i class="fab fa-angular fa-7x text-danger mb-3" title="Angular"></i>
         <h5>Angular</h5>
       </div>
       <div class="col" data-aos="fade-up">
-        <i class="fab fa-react fa-7x text-info mb-3"></i>
+        <i class="fab fa-react fa-7x text-info mb-3" title="React"></i>
         <h5>React</h5>
       </div>
       <div class="col" data-aos="fade-up">
-        <i class="fab fa-vuejs fa-7x text-success mb-3"></i>
+        <i class="fab fa-vuejs fa-7x text-success mb-3" title="Vue.js"></i>
         <h5>Vue.js</h5>
       </div>
       <div class="col" data-aos="fade-up">
-        <i class="fab fa-node-js fa-7x text-success mb-3"></i>
+        <i class="fab fa-node-js fa-7x text-success mb-3" title="Node.js"></i>
         <h5>Node.js</h5>
       </div>
       <div class="col" data-aos="fade-up">
-        <i class="fab fa-php fa-7x text-primary mb-3"></i>
+        <i class="fab fa-php fa-7x text-primary mb-3" title="PHP"></i>
         <h5>PHP</h5>
       </div>
       <div class="col" data-aos="fade-up">
-        <i class="fab fa-js-square fa-7x text-warning mb-3"></i>
+        <i class="fab fa-js-square fa-7x text-warning mb-3" title="JavaScript"></i>
         <h5>JavaScript</h5>
       </div>
       <div class="col" data-aos="fade-up">
-        <i class="fab fa-python fa-7x text-primary mb-3"></i>
+        <i class="fab fa-python fa-7x text-primary mb-3" title="Python"></i>
         <h5>Python</h5>
       </div>
       <div class="col" data-aos="fade-up">
-        <i class="fab fa-html5 fa-7x text-warning mb-3"></i>
+        <i class="fab fa-html5 fa-7x text-warning mb-3" title="HTML5"></i>
         <h5>HTML5</h5>
       </div>
       <div class="col" data-aos="fade-up">
-        <i class="fab fa-css3-alt fa-7x text-info mb-3"></i>
+        <i class="fab fa-css3-alt fa-7x text-info mb-3" title="CSS3"></i>
         <h5>CSS3</h5>
       </div>
       <div class="col" data-aos="fade-up">
-        <i class="fab fa-swift fa-7x text-danger mb-3"></i>
+        <i class="fab fa-swift fa-7x text-danger mb-3" title="Swift"></i>
         <h5>Swift</h5>
       </div>
       <div class="col" data-aos="fade-up">
-        <i class="fab fa-java fa-7x text-danger mb-3"></i>
+        <i class="fab fa-java fa-7x text-danger mb-3" title="Java"></i>
         <h5>Java</h5>
       </div>
       <div class="col" data-aos="fade-up">
-        <i class="fab fa-android fa-7x text-success mb-3"></i>
+        <i class="fab fa-android fa-7x text-success mb-3" title="Android"></i>
         <h5>Android</h5>
       </div>
     </div>
@@ -224,7 +383,8 @@
   </section> -->
 
   <!-- Projects -->
-  <section id="projects" class="section projects container py-5">
+  <section id="projects" class="section projects container py-5"
+    *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'">
     <h2 class="text-center mb-5">Major Projects</h2>
     <div class="row g-5">
       <div class="col-md-4 text-center" data-aos="fade-up">
