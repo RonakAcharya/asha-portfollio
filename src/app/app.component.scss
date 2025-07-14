@@ -318,6 +318,8 @@
 
 .portfolio {
   transition: background-color 0.3s, color 0.3s;
+  width: 100%;
+  overflow: hidden;
 }
 body, .portfolio, .navbar, .section, .card, .footer, .hero {
   transition: all 0.3s ease-in-out;
@@ -350,7 +352,7 @@ body, .portfolio, .navbar, .section, .card, .footer, .hero {
 }
 
 .about {
-  padding: 4rem 0;
+  // padding: 4rem 0;
 
   .text-theme {
     color: #ffb100;
