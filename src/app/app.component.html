@@ -23,7 +23,7 @@
           <!-- Home Link -->
           <li class="nav-item">
             <a class="nav-link" [ngClass]="{ 'active-link': activeSection === 'home' }" href="#home"
-              (click)="selectedAboutOption = '';closeNavbar()">Home</a>
+              (click)="closeNavbar()">Home</a>
           </li>
 
           <!-- About Dropdown -->
@@ -40,19 +40,25 @@
               </li>
             </ul>
           </li>
+
           <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'services'}"
               href="#services" (click)="closeNavbar()"
               *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'">Services</a></li>
+
           <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'products'}"
-            *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'" href="#products"
+              *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'" href="#products"
               (click)="closeNavbar()">Products</a></li>
+
           <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'technologies'}"
               href="#technologies" (click)="closeNavbar()">Technologies</a></li>
+
           <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'projects'}"
-            *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'" href="#projects"
+              *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'" href="#projects"
               (click)="closeNavbar()">Projects</a></li>
+
           <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'map'}" href="#map"
               (click)="closeNavbar()">Map</a></li>
+
           <li class="nav-item"><a class="nav-link" [ngClass]="{'active-link': activeSection === 'contact'}"
               href="#contact" (click)="closeNavbar()">Contact</a></li>
         </ul>
@@ -67,14 +73,14 @@
     <div class="hero-content position-absolute top-50 start-50 translate-middle text-white">
       <h1 class="display-4 fw-bold mb-3">Innovating Your Business</h1>
       <h2 class="mb-4 text-typing">Empowering Growth with Technology</h2>
-      <a href="#contact" class="btn btn-warning btn-lg mt-3">Book a Demo</a>
+      <a href="#contact" class="btn-demo">Book a Demo</a>
     </div>
   </section>
 
   <!-- About Us -->
   <!-- About Us Section - Shown Only When Selected -->
   <section id="about" class="section about container py-5" data-aos="fade-up"
-  *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'">
+    *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'">
     <div class="row align-items-center flex-column-reverse flex-lg-row mb-5">
       <!-- Text Block -->
       <div class="col-lg-6 text-center text-lg-start">
@@ -94,8 +100,7 @@
 
       <!-- Image Block -->
       <div class="col-lg-6 mb-4 mb-lg-0 text-center">
-        <img src="about-team.jpg" alt="About Us Illustration" class="img-fluid about-img shadow"
-        />
+        <img src="about-team.jpg" alt="About Us Illustration" class="img-fluid about-img shadow" />
       </div>
     </div>
 
@@ -189,7 +194,8 @@
     </div>
   </section> -->
 
-  <section id="team" class="section team container py-5" data-aos="fade-up" [class.d-none]="selectedAboutOption !== 'team'">
+  <section id="team" class="section team container py-5" data-aos="fade-up"
+    [class.d-none]="selectedAboutOption !== 'team'">
     <h2 class="text-center mb-5">Meet Our Core Team</h2>
 
     <div class="row g-4 justify-content-center">
@@ -197,7 +203,7 @@
       <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let member of teamMembers">
         <div class="card team-card text-center">
           <div class="team-img-wrapper">
-            <img [src]="member.image" [alt]="member.name" class="about-img"/>
+            <img [src]="member.image" [alt]="member.name" class="about-img" />
           </div>
           <div class="card-body">
             <h5 class="card-title mb-1">{{ member.name }}</h5>
@@ -213,7 +219,7 @@
   </section>
 
   <section id="culture" class="section culture-section container py-5" data-aos="fade-up"
-  [class.d-none]="selectedAboutOption !== 'culture'">
+    [class.d-none]="selectedAboutOption !== 'culture'">
     <h2 class="text-center fw-bold text-theme mb-5">Our Culture</h2>
 
     <div class="row justify-content-center g-4">
@@ -231,7 +237,7 @@
 
 
   <section id="ceo-message" class="section ceo-message container py-5" data-aos="fade-up"
-  [class.d-none]="selectedAboutOption !== 'ceo-message'">
+    [class.d-none]="selectedAboutOption !== 'ceo-message'">
     <div class="row gy-4 align-items-center flex-column-reverse flex-lg-row">
 
       <!-- Text Column -->
@@ -263,7 +269,7 @@
 
   <!-- Services -->
   <section id="services" class="section services container py-5"
-  *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'">
+    *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'">
     <h2 class="text-center mb-5">Our Services</h2>
     <div class="row g-5">
       <div class="col-md-6 d-flex align-items-center" data-aos="fade-right">
@@ -304,7 +310,7 @@
 
   <!-- Products -->
   <section id="products" class="section products container py-5"
-  *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'">
+    *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'">
     <h2 class="text-center mb-5">Our Products</h2>
     <div class="row g-5 align-items-center">
       <div class="col-lg-6 text-center" data-aos="fade-right">
@@ -385,7 +391,7 @@
 
   <!-- Projects -->
   <section id="projects" class="section projects container py-5"
-  *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'">
+    *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'">
     <h2 class="text-center mb-5">Major Projects</h2>
     <div class="row g-5">
       <div class="col-md-4 text-center" data-aos="fade-up">

@@ -1,44 +1,50 @@
+$primary-color: #3d3dff;
+$white: #ffffff;
+
 /* You can add global styles to this file, and also import other style files */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    scroll-behavior: smooth;
-  }
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
+}
 
-  body.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
-  }
-  body.dark-mode .navbar, body.dark-mode .footer {
-    background: #333333 !important;
-  }
-  body.dark-mode .contact-info, body.dark-mode .card {
-    background: #1e1e1e;
-    color: #ffffff;
-  }
-  body.dark-mode .btn-outline-dark {
-    color: white;
-    border-color: white;
-  }
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
 
-  :root {
-    --bg: #ffffff;
-    --text: #000000;
-    --card-bg: #f9f9f9;
-  }
-  
-  .dark-mode {
-    --bg: #121212;
-    --text: #ffffff;
-    --card-bg: #1e1e1e;
-  }
-  
-  body {
-    background-color: var(--bg);
-    color: var(--text);
-  }
-  
-  .card {
-    background-color: var(--card-bg);
-  }
-  
-  
+body.dark-mode .navbar,
+body.dark-mode .footer {
+  background: #333333 !important;
+}
+
+body.dark-mode .contact-info,
+body.dark-mode .card {
+  background: #1e1e1e;
+  color: #ffffff;
+}
+
+body.dark-mode .btn-outline-dark {
+  color: white;
+  border-color: white;
+}
+
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --card-bg: #f9f9f9;
+}
+
+.dark-mode {
+  --bg: #121212;
+  --text: #ffffff;
+  --card-bg: #1e1e1e;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.card {
+  background-color: var(--card-bg);
+}
