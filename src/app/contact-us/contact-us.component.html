@@ -1,0 +1,61 @@
+<section class="contact-us-section">
+    <div class="section-header">
+        <h2>Get in Touch</h2>
+        <p>Have a question or need assistance? Reach out to us through the form or find us on the map.</p>
+    </div>
+
+    <div class="contact-content-wrapper">
+        <div class="contact-map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118000.9103859063!2d70.67265814529342!3d22.27361730043818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959c98ac71be367%3A0xffe5527a62a98f55!2sRajkot%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1701358400000!5m2!1sen!2sin"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="map-overlay-text">
+                <h3>Our Location</h3>
+                <p>123 Main Street, Rajkot, Gujarat, India</p>
+                <p>+91 98765 43210</p>
+                <p>info yourcompany.com</p>
+            </div>
+        </div>
+        <div class="contact-form-container">
+            <form #contactFormRef="ngForm" (ngSubmit)="onSubmitContactForm(contactFormRef)">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" [(ngModel)]="contactForm.name" required
+                        #nameField="ngModel">
+                    <div *ngIf="nameField.invalid && (nameField.dirty || nameField.touched)" class="form-error">
+                        Name is required.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" [(ngModel)]="contactForm.email" required email
+                        #emailField="ngModel">
+                    <div *ngIf="emailField.invalid && (emailField.dirty || emailField.touched)" class="form-error">
+                        <span *ngIf="emailField.errors?.['required']">Email is required.</span>
+                        <span *ngIf="emailField.errors?.['email']">Please enter a valid email.</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" [(ngModel)]="contactForm.subject">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="5" [(ngModel)]="contactForm.message" required
+                        #messageField="ngModel"></textarea>
+                    <div *ngIf="messageField.invalid && (messageField.dirty || messageField.touched)"
+                        class="form-error">
+                        Message is required.
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-button" [disabled]="contactFormRef.invalid">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>

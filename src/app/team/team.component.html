@@ -1,0 +1,26 @@
+<section class="our-team-section">
+    <div class="section-header">
+        <h2>Meet Our Team</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat.</p>
+    </div>
+
+    <div class="team-members-container">
+        <div class="team-member-card" *ngFor="let member of teamMembers">
+            <div class="member-image">
+                <img src="assets/{{ member.image }}" alt="{{ member.name }}">
+            </div>
+            <h3>{{ member.name }}</h3>
+            <p class="member-position">{{ member.position }}</p>
+            <div class="member-social-links">
+                <a *ngIf="member.linkedin" [href]="member.linkedin" target="_blank" aria-label="LinkedIn Profile">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a *ngIf="member.twitter" [href]="member.twitter" target="_blank" aria-label="Twitter Profile">
+                    <i class="fab fa-twitter-square"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

@@ -4,13 +4,38 @@ import { Component, ElementRef, HostListener, inject, ViewChild } from '@angular
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Meta, Title } from '@angular/platform-browser';
 import AOS from 'aos';
+import { HeaderComponent } from './component/header/header.component';
+import { SharedService } from './services/shared.service';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { OurServicesComponent } from './our-services/our-services.component';
+import { TeamComponent } from './team/team.component';
+import { OurProductsComponent } from './our-products/our-products.component';
+import { OurTechnologyComponent } from './our-technology/our-technology.component';
+import { OurMajorWorkComponent } from './our-major-work/our-major-work.component';
+import { OurImpactsComponent } from './our-impacts/our-impacts.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 declare var bootstrap: any;
 declare let L: any;
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    CommonModule, 
+    FormsModule, 
+    ReactiveFormsModule, 
+    HeaderComponent, 
+    HomeComponent, 
+    AboutComponent, 
+    OurServicesComponent, 
+    TeamComponent, 
+    OurProductsComponent, 
+    OurTechnologyComponent, 
+    OurMajorWorkComponent, 
+    OurImpactsComponent,
+    ContactUsComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -94,7 +119,7 @@ export class AppComponent {
   ];
 
 
-  constructor(private title: Title, private meta: Meta) {
+  constructor(private title: Title, private meta: Meta, private _sharedService: SharedService) {
     this.contactForm = this._fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -110,6 +135,7 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
+    this.setSubjects();
     AOS.init({ duration: 1000 });
   }
 
@@ -132,34 +158,41 @@ export class AppComponent {
     this.isDarkMode = !this.isDarkMode;
   }
 
+  setSubjects() {
+    this._sharedService.darkThemeListener$.subscribe((isDark: boolean) => {
+      this.isDarkMode = isDark;
+      document.body.classList.toggle('dark-theme', isDark);
+    });
+  }
+
   // Scroll spy to highlight active menu
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const NAVBAR_HEIGHT = 80; // Adjust this to match your fixed header height
-  
+
     const sections = [
       'home', 'about', 'team', 'culture', 'ceo-message',
       'services', 'products', 'technologies',
       'projects', 'map', 'contact'
     ];
-  
+
     const scrollPosition = window.scrollY + NAVBAR_HEIGHT + 1; // Add 1 to avoid exact overlap issues
-  
+
     let currentSection = 'home';
-  
+
     for (const id of sections) {
       const el = document.getElementById(id);
       if (el) {
         const sectionTop = el.offsetTop;
         const sectionHeight = el.offsetHeight;
-  
+
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
           currentSection = id;
           break;
         }
       }
     }
-  
+
     // Group all sub-sections under 'about'
     if (['about', 'team', 'culture', 'ceo-message'].includes(currentSection)) {
       this.activeSection = 'about';
@@ -167,7 +200,7 @@ export class AppComponent {
       this.activeSection = currentSection;
     }
   }
-  
+
 
   closeNavbar(sectionId?: string) {
     if (sectionId) {

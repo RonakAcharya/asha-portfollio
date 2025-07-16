@@ -1,0 +1,174 @@
+@import '../../styles.scss';
+
+/* Our Services Section Styling */
+.our-services-section {
+    padding: 80px 5%;
+    background-color: $light-background-color; // Match hero section background or choose new
+    color: $light-text-color;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme .our-services-section {
+    background-color: $dark-background-color;
+    color: $dark-text-color;
+}
+
+.our-services-section .section-header {
+    margin-bottom: 60px;
+}
+
+.our-services-section .section-header h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: $light-text-color;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .our-services-section .section-header h2 {
+    color: $dark-text-color;
+}
+
+.our-services-section .section-header p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: $light-text-color;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .our-services-section .section-header p {
+    color: $dark-text-color;
+}
+
+.services-cards-container {
+    display: grid;
+    /* Use auto-fit to create as many columns as fit, min 280px wide */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    /* Space between cards */
+    max-width: 1200px;
+    /* Limit container width for better layout */
+    margin: 0 auto;
+    /* Center the container */
+}
+
+.service-card {
+    background-color: $light-background-color; // Card background
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+body.dark-theme .service-card {
+    background-color: darken($dark-background-color, 3%);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    /* Lifts the card slightly */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    /* Stronger shadow on hover */
+    background-color: lighten($light-background-color, 5%); // Slight background change on hover
+}
+
+body.dark-theme .service-card:hover {
+    background-color: lighten($dark-background-color, 5%);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+}
+
+
+.service-icon {
+    font-size: 3.5rem;
+    color: $light-navbar-bg;
+    /* Use your primary blue for icons */
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .service-icon {
+    color: $dark-navbar-bg;
+}
+
+.service-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: $light-text-color;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .service-card h3 {
+    color: $dark-text-color;
+}
+
+.service-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: $light-text-color;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .service-card p {
+    color: $dark-text-color;
+}
+
+/* Responsive adjustments for Services Section */
+@media (max-width: 992px) {
+    .services-cards-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        /* Adjust min width for tablets */
+        gap: 25px;
+    }
+
+    .service-card {
+        padding: 25px;
+    }
+
+    .service-icon {
+        font-size: 3rem;
+        margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+        font-size: 1.6rem;
+    }
+
+    .service-card p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .our-services-section {
+        padding: 60px 3%;
+    }
+
+    .services-cards-container {
+        grid-template-columns: 1fr;
+        /* Stack cards vertically on smaller mobiles */
+        gap: 20px;
+    }
+
+    .service-card {
+        padding: 20px;
+    }
+
+    .service-icon {
+        font-size: 2.8rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .service-card p {
+        font-size: 0.9rem;
+    }
+}

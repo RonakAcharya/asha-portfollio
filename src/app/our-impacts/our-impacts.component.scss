@@ -1,0 +1,206 @@
+@import '../../styles.scss';
+
+/* Our Impact So Far Section Styling */
+.our-impact-section {
+    padding: 80px 5%;
+    background-color: lighten($light-background-color, 3%);
+    /* Background for distinction */
+    color: $light-text-color;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme .our-impact-section {
+    background-color: darken($dark-background-color, 3%);
+    color: $dark-text-color;
+}
+
+.our-impact-section .section-header {
+    margin-bottom: 60px;
+}
+
+.our-impact-section .section-header h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: $light-text-color;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .our-impact-section .section-header h2 {
+    color: $dark-text-color;
+}
+
+.our-impact-section .section-header p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: $light-text-color;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .our-impact-section .section-header p {
+    color: $dark-text-color;
+}
+
+.impact-stats-container {
+    display: grid;
+    /* 2 columns by default, then 4 on larger screens */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    /* Space between stats cards */
+    max-width: 1000px;
+    /* Limit container width */
+    margin: 0 auto;
+    /* Center the container */
+    padding: 20px;
+    background-color: $light-background-color;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-theme .impact-stats-container {
+    background-color: $dark-background-color;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.impact-stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 15px;
+    background-color: lighten($light-background-color, 5%);
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+body.dark-theme .impact-stat-card {
+    background-color: darken($dark-background-color, 5%);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.impact-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    background-color: lighten($light-background-color, 8%);
+}
+
+body.dark-theme .impact-stat-card:hover {
+    background-color: lighten($dark-background-color, 2%);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.impact-stat-card i {
+    font-size: 3rem;
+    /* Icon size */
+    color: $light-navbar-bg;
+    /* Primary blue for icons */
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .impact-stat-card i {
+    color: $dark-navbar-bg;
+}
+
+.stat-value {
+    font-size: 3.5rem;
+    /* Large number for impact */
+    font-weight: bold;
+    color: $light-text-color;
+    line-height: 1;
+    /* Remove extra space above/below */
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .stat-value {
+    color: $dark-text-color;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: $light-text-color;
+    opacity: 0.8;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+body.dark-theme .stat-label {
+    color: $dark-text-color;
+}
+
+/* Responsive adjustments for Impact Section */
+@media (max-width: 992px) {
+    .impact-stats-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* Always 2 columns on tablets */
+        gap: 25px;
+    }
+
+    .impact-stat-card {
+        padding: 20px 10px;
+    }
+
+    .impact-stat-card i {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .stat-value {
+        font-size: 3rem;
+    }
+
+    .stat-label {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .our-impact-section {
+        padding: 60px 3%;
+    }
+
+    .impact-stats-container {
+        gap: 20px;
+        padding: 15px;
+    }
+
+    .impact-stat-card i {
+        font-size: 2.2rem;
+    }
+
+    .stat-value {
+        font-size: 2.8rem;
+    }
+
+    .stat-label {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .impact-stats-container {
+        grid-template-columns: 1fr;
+        /* Stack vertically on very small mobiles */
+        gap: 15px;
+    }
+
+    .impact-stat-card {
+        padding: 15px 10px;
+    }
+
+    .impact-stat-card i {
+        font-size: 2rem;
+    }
+
+    .stat-value {
+        font-size: 2.5rem;
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+    }
+}

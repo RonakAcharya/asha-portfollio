@@ -1,0 +1,168 @@
+@import '../../styles.scss';
+
+/* Our Product Section Styling */
+.our-product-section {
+    padding: 80px 5%;
+    background-color: $light-background-color;
+    /* Using primary light background for this section */
+    color: $light-text-color;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme .our-product-section {
+    background-color: $dark-background-color;
+    color: $dark-text-color;
+}
+
+.our-product-section .section-header {
+    margin-bottom: 60px;
+}
+
+.our-product-section .section-header h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: $light-text-color;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .our-product-section .section-header h2 {
+    color: $dark-text-color;
+}
+
+.our-product-section .section-header p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: $light-text-color;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .our-product-section .section-header p {
+    color: $dark-text-color;
+}
+
+.product-info-block {
+    max-width: 800px;
+    /* Max width for readability of the product block */
+    margin: 0 auto;
+    /* Center the block */
+    padding: 50px;
+    background-color: $light-background-color;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    /* More prominent shadow for a single block */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-theme .product-info-block {
+    background-color: darken($dark-background-color, 3%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.product-info-block h3 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: $light-navbar-bg;
+    /* Use primary blue for product title */
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .product-info-block h3 {
+    color: $dark-navbar-bg;
+}
+
+.product-info-block p {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    color: $light-text-color;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .product-info-block p {
+    color: $dark-text-color;
+}
+
+.call-to-action-button {
+    background-color: $light-navbar-bg; // Use a theme color for the button
+    color: $light-navbar-text;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.call-to-action-button:hover {
+    background-color: $light-navbar-hover-bg;
+    transform: translateY(-2px);
+}
+
+body.dark-theme .call-to-action-button {
+    background-color: $dark-navbar-bg;
+    color: $dark-navbar-text;
+}
+
+body.dark-theme .call-to-action-button:hover {
+    background-color: $dark-navbar-hover-bg;
+}
+
+
+/* Responsive adjustments for Product Section */
+@media (max-width: 992px) {
+    .product-info-block {
+        padding: 40px;
+        max-width: 90%;
+        /* Adjust width for smaller desktops/tablets */
+    }
+
+    .product-info-block h3 {
+        font-size: 2.2rem;
+    }
+
+    .product-info-block p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .our-product-section {
+        padding: 60px 3%;
+    }
+
+    .product-info-block {
+        padding: 30px;
+    }
+
+    .product-info-block h3 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+
+    .product-info-block p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .product-info-block .call-to-action-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .product-info-block {
+        padding: 25px;
+    }
+
+    .product-info-block h3 {
+        font-size: 1.6rem;
+    }
+
+    .product-info-block p {
+        font-size: 0.95rem;
+    }
+}

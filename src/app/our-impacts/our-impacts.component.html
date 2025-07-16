@@ -1,0 +1,14 @@
+<section class="our-impact-section">
+    <div class="section-header">
+        <h2>Our Impact So Far</h2>
+        <p>Discover the tangible results and reach we've achieved through our dedication and hard work.</p>
+    </div>
+
+    <div class="impact-stats-container">
+        <div class="impact-stat-card" *ngFor="let stat of impactStats">
+            <i [class]="stat.icon"></i>
+            <span class="stat-value">{{ stat.value }}</span>
+            <p class="stat-label">{{ stat.label }}</p>
+        </div>
+    </div>
+</section>

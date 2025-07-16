@@ -1,0 +1,152 @@
+@import '../../styles.scss';
+
+/* Our Goal Work / Major Projects Section Styling */
+.our-goal-work-section {
+    padding: 80px 5%;
+    background-color: $light-background-color;
+    color: $light-text-color;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme .our-goal-work-section {
+    background-color: $dark-background-color;
+    color: $dark-text-color;
+}
+
+.our-goal-work-section .section-header {
+    margin-bottom: 60px;
+}
+
+.our-goal-work-section .section-header h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: $light-text-color;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .our-goal-work-section .section-header h2 {
+    color: $dark-text-color;
+}
+
+.our-goal-work-section .section-header p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: $light-text-color;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .our-goal-work-section .section-header p {
+    color: $dark-text-color;
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* At least 300px wide, fills space */
+    gap: 40px; /* Space between project cards */
+    max-width: 1000px; /* Limit container width for readability */
+    margin: 0 auto; /* Center the container */
+}
+
+.project-card {
+    background-color: lighten($light-background-color, 5%); /* Slightly lighter background */
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+body.dark-theme .project-card {
+    background-color: darken($dark-background-color, 5%);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    background-color: lighten($light-background-color, 8%);
+}
+
+body.dark-theme .project-card:hover {
+    background-color: lighten($dark-background-color, 2%);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+}
+
+.project-card h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: $light-navbar-bg; /* Use primary blue for titles */
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .project-card h3 {
+    color: $dark-navbar-bg;
+}
+
+.project-card .project-duration {
+    font-size: 1rem;
+    color: #6c757d; /* Muted color for duration */
+    margin-bottom: 15px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .project-card .project-duration {
+    color: #ced4da;
+}
+
+.project-card .project-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: $light-text-color;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .project-card .project-description {
+    color: $dark-text-color;
+}
+
+/* Responsive adjustments for Projects Section */
+@media (max-width: 992px) {
+    .projects-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+    .project-card {
+        padding: 30px;
+    }
+    .project-card h3 {
+        font-size: 1.8rem;
+    }
+    .project-card .project-description {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .our-goal-work-section {
+        padding: 60px 3%;
+    }
+    .projects-container {
+        grid-template-columns: 1fr; /* Stack cards vertically on smaller mobiles */
+        gap: 25px;
+    }
+    .project-card {
+        padding: 25px;
+    }
+    .project-card h3 {
+        font-size: 1.6rem;
+    }
+    .project-card .project-duration {
+        font-size: 0.9rem;
+    }
+    .project-card .project-description {
+        font-size: 0.95rem;
+    }
+}

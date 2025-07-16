@@ -1,0 +1,14 @@
+<section class="our-goal-work-section">
+    <div class="section-header">
+        <h2>Our Major Projects</h2>
+        <p>Explore some of our significant contributions and key projects that highlight our expertise and impact.</p>
+    </div>
+
+    <div class="projects-container">
+        <div class="project-card" *ngFor="let project of majorProjects">
+            <h3>{{ project.title }}</h3>
+            <p class="project-duration">{{ project.duration }}</p>
+            <p class="project-description">{{ project.description }}</p>
+        </div>
+    </div>
+</section>

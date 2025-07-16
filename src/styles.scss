@@ -1,9 +1,45 @@
-$primary-color: #3d3dff;
-$white: #ffffff;
+// SCSS Variables for Themes
 
-/* You can add global styles to this file, and also import other style files */
+// --- Light Blue Theme (Default) ---
+$light-background-color: #F0F8FF; // Alice Blue - very light blue
+$light-text-color: #2C3E50; // Darker blue-gray for main text
+$light-navbar-bg: #ffb922; // A vibrant, professional blue
+$light-navbar-text: #FFFFFF; // White text for navbar
+$light-navbar-hover-bg: #ffd000c9; // Slightly darker blue on hover
+$light-toggle-button-color: #FFFFFF; // White for theme toggle icon
+$light-toggle-button-hover-bg: #ffc400; // Same as navbar hover
+$light-hamburger-color: #FFFFFF; // White for hamburger icon
+$light-border-color: #edc46d; // A lighter blue for mobile menu borders
+
+// --- Dark Theme ---
+$dark-background-color: #2C3E50; // Dark blue-gray for dark mode background
+$dark-text-color: #ffb922; // Light gray for dark mode text
+$dark-navbar-bg: #141414; // Slightly darker blue-gray for dark navbar
+$dark-navbar-text: #ffb922; // Light gray for dark navbar text
+$dark-navbar-hover-bg: #ffbf1034; // Even darker blue-gray on hover
+$dark-toggle-button-color: #ECF0F1; // Light gray for toggle icon
+$dark-toggle-button-hover-bg: #ffbf0e94; // Same as dark navbar hover
+$dark-hamburger-color: #ECF0F1; // Light gray for hamburger icon
+$dark-border-color: #6b604c; // A subdued blue-gray for dark mobile menu borders
+$light-input-bg: #f8f9fa;
+$dark-input-bg: #343a40;
+
+$white: white;
+$primary-color: #3498DB; // Primary color for buttons and links
+
+// Basic Reset & Body Styling
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: $light-background-color; // Default light theme
+  color: $light-text-color; // Default light theme
+  transition: background-color 0.3s ease, color 0.3s ease;
   scroll-behavior: smooth;
 }
 

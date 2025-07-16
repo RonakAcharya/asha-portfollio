@@ -1,0 +1,148 @@
+// src/styles.scss (continue from your existing SCSS code)
+@import '../../styles.scss';
+// ... (Your existing SCSS variables and body styling) ...
+
+/* Hero Section Styling */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 100px 5%;
+    /* Adjust padding-top to account for fixed navbar */
+    min-height: 80vh;
+    /* Make sure it takes up most of the viewport height */
+    background-color: $light-background-color;
+    color: $light-text-color;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: left;
+}
+
+body.dark-theme .hero-section {
+    background-color: $dark-background-color;
+    color: $dark-text-color;
+}
+
+.hero-content {
+    flex: 1;
+    /* Takes up available space */
+    max-width: 500px;
+    /* Limit width for readability */
+    margin-right: 50px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: $light-text-color; // Ensure heading color matches theme
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .hero-content h1 {
+    color: $dark-text-color;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: $light-text-color;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .hero-content p {
+    color: $dark-text-color;
+}
+
+.call-to-action-button {
+    background-color: $light-navbar-bg; // Use a theme color for the button
+    color: $light-navbar-text;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.call-to-action-button:hover {
+    background-color: $light-navbar-hover-bg;
+    transform: translateY(-2px);
+}
+
+body.dark-theme .call-to-action-button {
+    background-color: $dark-navbar-bg;
+    color: $dark-navbar-text;
+}
+
+body.dark-theme .call-to-action-button:hover {
+    background-color: $dark-navbar-hover-bg;
+}
+
+.hero-image {
+    flex: 1;
+    /* Takes up available space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    /* Limit image width */
+}
+
+.hero-image img {
+    max-width: 100%;
+    /* Ensure image scales down */
+    height: auto;
+    /* Maintain aspect ratio */
+    display: block;
+    /* Remove extra space below image */
+}
+
+/* Responsive adjustments for Hero Section */
+@media (max-width: 992px) {
+    .hero-section {
+        flex-direction: column;
+        /* Stack content vertically */
+        text-align: center;
+        padding: 80px 3%;
+        /* Adjust padding for smaller screens */
+        min-height: unset;
+        /* Allow height to adjust to content */
+    }
+
+    .hero-content {
+        margin-right: 0;
+        margin-bottom: 40px;
+        /* Space between content and image */
+        max-width: 100%;
+        /* Allow content to use full width */
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .hero-image {
+        max-width: 80%;
+        /* Smaller image on mobile */
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .call-to-action-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}

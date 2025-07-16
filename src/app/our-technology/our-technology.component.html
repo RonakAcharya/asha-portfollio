@@ -1,0 +1,15 @@
+<section class="our-technologies-section">
+    <div class="section-header">
+        <h2>Our Technology Stack</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat.</p>
+    </div>
+
+    <div class="technologies-grid-container">
+        <div class="tech-item" *ngFor="let tech of technologies">
+            <i [class]="tech.iconClass" [ngClass]="tech.colorClass"></i>
+            <h5>{{ tech.name }}</h5>
+        </div>
+    </div>
+</section>

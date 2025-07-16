@@ -1,0 +1,289 @@
+@import '../../styles.scss';
+
+/* Contact Us Section Styling */
+.contact-us-section {
+    padding: 80px 5%;
+    background-color: $light-background-color;
+    color: $light-text-color;
+    text-align: center; // For the section-header, content wrapper will override for its children
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme .contact-us-section {
+    background-color: $dark-background-color;
+    color: $dark-text-color;
+}
+
+.contact-us-section .section-header {
+    margin-bottom: 60px;
+}
+
+.contact-us-section .section-header h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: $light-text-color;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .contact-us-section .section-header h2 {
+    color: $dark-text-color;
+}
+
+.contact-us-section .section-header p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: $light-text-color;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .contact-us-section .section-header p {
+    color: $dark-text-color;
+}
+
+// New wrapper for map and form
+.contact-content-wrapper {
+    display: flex;
+    gap: 40px; /* Space between map and form */
+    max-width: 1200px; /* Max width for the entire content area */
+    margin: 0 auto;
+    align-items: stretch; /* Make children stretch to same height */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Apply shadow to the wrapper */
+    border-radius: 15px;
+    overflow: hidden; /* Ensures rounded corners apply to children */
+    background-color: lighten($light-background-color, 3%); // Background for consistency
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-theme .contact-content-wrapper {
+    background-color: darken($dark-background-color, 3%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.contact-map {
+    flex: 1; /* Takes equal space */
+    min-width: 300px; /* Minimum width for the map */
+    position: relative; /* For overlay text positioning */
+    overflow: hidden; /* Ensures map content respects border-radius */
+    background-color: #e0e0e0; /* Fallback/loading background for map */
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 100%;
+    border: none; /* No border for the iframe */
+    display: block; /* Remove extra space below iframe */
+}
+
+.map-overlay-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for readability */
+    color: white;
+    padding: 20px;
+    text-align: left;
+    backdrop-filter: blur(5px); /* Optional: blur effect for modern browsers */
+    -webkit-backdrop-filter: blur(5px); /* Safari support */
+}
+
+.map-overlay-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.map-overlay-text p {
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+    color: #e0e0e0;
+}
+
+.map-overlay-text p:last-child {
+    margin-bottom: 0;
+}
+
+.contact-form-container {
+    flex: 1; /* Takes equal space */
+    padding: 40px;
+    background-color: lighten($light-background-color, 3%);
+    border-radius: 0 15px 15px 0; /* Adjust border-radius for right side */
+    // Shadow moved to contact-content-wrapper
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-theme .contact-form-container {
+    background-color: darken($dark-background-color, 3%);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: $light-text-color;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .form-group label {
+    color: $dark-text-color;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: $light-input-bg;
+    color: $light-text-color;
+    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+// Define input background colors for themes (if not already defined)
+$light-input-bg: #f8f9fa;
+$dark-input-bg: #343a40;
+
+body.dark-theme .form-group input[type="text"],
+body.dark-theme .form-group input[type="email"],
+body.dark-theme .form-group textarea {
+    background-color: $dark-input-bg;
+    color: $dark-text-color;
+    border-color: #555;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: $light-navbar-bg;
+    box-shadow: 0 0 0 3px rgba($light-navbar-bg, 0.2);
+}
+
+body.dark-theme .form-group input:focus,
+body.dark-theme .form-group textarea:focus {
+    border-color: $dark-navbar-bg;
+    box-shadow: 0 0 0 3px rgba($dark-navbar-bg, 0.3);
+}
+
+.form-error {
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+.submit-button {
+    background-color: $light-navbar-bg;
+    color: $light-navbar-text;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+body.dark-theme .submit-button {
+    background-color: $dark-navbar-bg;
+    color: $dark-navbar-text;
+}
+
+.submit-button:hover:not(:disabled) {
+    background-color: darken($light-navbar-bg, 10%);
+    transform: translateY(-2px);
+}
+
+body.dark-theme .submit-button:hover:not(:disabled) {
+    background-color: lighten($dark-navbar-bg, 10%);
+}
+
+.submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Responsive adjustments for Contact Form with Map */
+@media (max-width: 992px) {
+    .contact-content-wrapper {
+        flex-direction: column; /* Stack map and form vertically */
+        gap: 0; /* No gap when stacked */
+        max-width: 90%;
+    }
+
+    .contact-map {
+        min-height: 300px; /* Ensure map has a decent height when stacked */
+        border-radius: 15px 15px 0 0; /* Adjust radius for top part when stacked */
+    }
+
+    .contact-form-container {
+        padding: 30px;
+        border-radius: 0 0 15px 15px; /* Adjust radius for bottom part when stacked */
+    }
+
+    .form-group label {
+        font-size: 0.95rem;
+    }
+    .form-group input,
+    .form-group textarea {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+    .submit-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-us-section {
+        padding: 60px 3%;
+    }
+    .contact-form-container {
+        padding: 25px;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .contact-map {
+        min-height: 250px; /* Smaller height for map on mobile */
+    }
+    .map-overlay-text h3 {
+        font-size: 1.3rem;
+    }
+    .map-overlay-text p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-form-container {
+        padding: 20px;
+    }
+    .form-group label {
+        font-size: 0.9rem;
+    }
+    .form-group input,
+    .form-group textarea {
+        font-size: 0.9rem;
+        padding: 8px 10px;
+    }
+    .submit-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    .contact-map {
+        min-height: 200px; /* Even smaller height for map on small mobiles */
+    }
+}
