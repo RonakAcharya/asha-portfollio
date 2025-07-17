@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, ElementRef, HostListener, inject, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, HostListener, inject, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Meta, Title } from '@angular/platform-browser';
 import AOS from 'aos';
@@ -110,7 +110,7 @@ export class AppComponent {
   ];
 
 
-  constructor(private title: Title, private meta: Meta) {
+  constructor(private title: Title, private meta: Meta,private cdr: ChangeDetectorRef) {
     this.contactForm = this._fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -140,8 +140,9 @@ export class AppComponent {
     });
 
     this.startAutoSlide();
-    this.typeText();
-
+    setTimeout(() => {
+      this.typeText(); // delay to avoid expression change error
+    }, 0);
   }
 
   get selectedBgImage(): string {
@@ -318,14 +319,21 @@ export class AppComponent {
   }
 
   typeText() {
-    const currentPhrase = this.typedTexts[this.textIndex];
-    if (this.charIndex < currentPhrase.length) {
-      this.currentText += currentPhrase[this.charIndex++];
-      setTimeout(() => this.typeText(), 80);
-    } else {
-      setTimeout(() => this.deleteText(), 2000);
-    }
+    this.currentText = '';
+    const fullText = this.typedTexts[this.currentIndex];
+    let charIndex = 0;
+  
+    const typingInterval = setInterval(() => {
+      if (charIndex < fullText.length) {
+        this.currentText += fullText.charAt(charIndex);
+        charIndex++;
+        this.cdr.detectChanges(); // <-- inform Angular
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, 100);
   }
+  
 
   deleteText() {
     if (this.charIndex > 0) {
