@@ -28,6 +28,18 @@ export class AppComponent {
   isDarkMode = false;
   map: any;
 
+  typedTexts = [
+    'Empowering Growth with Technology',
+    'Unlocking Digital Success',
+    'Meet the Experts Behind Innovation',
+    'Building Ideas That Matter',
+    'A Culture of Creativity and Impact',
+    'Hear from Our Visionary CEO'
+  ];
+  currentText = '';
+  private textIndex = 0;
+  private charIndex = 0;
+
   activeSection: string = 'home';
 
   bgImageMap: { [key: string]: string } = {
@@ -36,6 +48,10 @@ export class AppComponent {
     'culture': 'culture.jpg',
     'ceo-message': 'ceo-msg.jpg'
   };
+
+  backgroundImages = ['bg1.jpg', 'bg2.jpg', 'team.jpg', 'about.jpg', 'culture.jpg', 'ceo-msg.jpg'];
+  selectedHomeBgImage = this.backgroundImages[0];
+  intervalId: any;
 
   teamMembers = [
     {
@@ -122,10 +138,14 @@ export class AppComponent {
         this.map.invalidateSize();
       }, 300);
     });
+
+    this.startAutoSlide();
+    this.typeText();
+
   }
 
   get selectedBgImage(): string {
-    return this.bgImageMap[this.selectedAboutOption] || 'bg2.jpg';
+    return this.selectedHomeBgImage;
   }
 
   toggleDarkMode() {
@@ -136,30 +156,30 @@ export class AppComponent {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const NAVBAR_HEIGHT = 80; // Adjust this to match your fixed header height
-  
+
     const sections = [
       'home', 'about', 'team', 'culture', 'ceo-message',
       'services', 'products', 'technologies',
       'projects', 'map', 'contact'
     ];
-  
+
     const scrollPosition = window.scrollY + NAVBAR_HEIGHT + 1; // Add 1 to avoid exact overlap issues
-  
+
     let currentSection = 'home';
-  
+
     for (const id of sections) {
       const el = document.getElementById(id);
       if (el) {
         const sectionTop = el.offsetTop;
         const sectionHeight = el.offsetHeight;
-  
+
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
           currentSection = id;
           break;
         }
       }
     }
-  
+
     // Group all sub-sections under 'about'
     if (['about', 'team', 'culture', 'ceo-message'].includes(currentSection)) {
       this.activeSection = 'about';
@@ -167,7 +187,7 @@ export class AppComponent {
       this.activeSection = currentSection;
     }
   }
-  
+
 
   closeNavbar(sectionId?: string) {
     if (sectionId) {
@@ -273,34 +293,49 @@ export class AppComponent {
     } else {
       alert('Please fill all required fields correctly.');
     }
-    // if (this.contactForm.valid) {
-    //   const formData = this.contactForm.value;
-
-    //   // Use 'text/plain' to avoid preflight request
-    //   this._http.post(
-    //     this.scriptURL,
-    //     JSON.stringify(formData), // send JSON manually
-    //     {
-    //       headers: new HttpHeaders({
-    //         'Content-Type': 'text/plain' // triggers no preflight
-    //       }),
-    //       responseType: 'text'
-    //     }
-    //   ).subscribe({
-    //     next: (res: any) => {
-    //       alert('Message sent successfully!');
-    //       this.contactForm.reset();
-    //     },
-    //     error: (err: any) => {
-    //       console.error('Error:', err);
-    //       alert('Error sending message. Please try again.');
-    //     }
-    //   });
-    // }
   }
 
   isAboutChildActive(): boolean {
     return ['about', 'team', 'culture', 'ceo-message'].includes(this.activeSection);
   }
 
+  startAutoSlide() {
+    this.intervalId = setInterval(() => {
+      this.nextImage();
+    }, 6000);
+  }
+
+  nextImage() {
+    this.currentIndex = (this.currentIndex + 1) % this.backgroundImages.length;
+    this.selectedHomeBgImage = this.backgroundImages[this.currentIndex];
+  }
+
+  selectImage(index: number) {
+    this.currentIndex = index;
+    this.selectedHomeBgImage = this.backgroundImages[index];
+    clearInterval(this.intervalId);
+    this.startAutoSlide();
+  }
+
+  typeText() {
+    const currentPhrase = this.typedTexts[this.textIndex];
+    if (this.charIndex < currentPhrase.length) {
+      this.currentText += currentPhrase[this.charIndex++];
+      setTimeout(() => this.typeText(), 80);
+    } else {
+      setTimeout(() => this.deleteText(), 2000);
+    }
+  }
+
+  deleteText() {
+    if (this.charIndex > 0) {
+      this.currentText = this.currentText.slice(0, --this.charIndex);
+      setTimeout(() => this.deleteText(), 50);
+    } else {
+      this.textIndex = (this.textIndex + 1) % this.typedTexts.length;
+      setTimeout(() => this.typeText(), 500);
+    }
+  }
 }
+
+
