@@ -749,3 +749,106 @@ html {
     transform: translateX(-50%) translateY(-10px);
   }
 }
+
+.consulting-hero {
+  background: #f8f9fa;
+
+  .hero-inner {
+    .video-col {
+      position: relative;
+
+      .video-badge {
+        position: absolute;
+        top: 20px; left: 20px;
+        background: #ff8a00;
+        color: #fff;
+        padding: .25rem .75rem;
+        border-radius: 50px;
+        font-size: .875rem;
+        z-index: 2;
+      }
+
+      .video-wrapper {
+        border-radius: 16px;
+        overflow: hidden;
+        height: 350px;
+      }
+
+      .video-bg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.8);
+      }
+    }
+
+    .content-col {
+      display: flex;
+      align-items: center;
+      padding: 2rem;
+
+      .content-panel {
+        background: #fff;
+        border-left: 8px solid #ff8a00;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 0.75rem 1.5rem rgba(0,0,0,0.05);
+
+        h2 {
+          font-size: 2.25rem;
+          margin-bottom: 1rem;
+        }
+
+        .text-accent {
+          color: #ff8a00;
+        }
+
+        .btn-accent {
+          background: #ff8a00;
+          border-color: #ff8a00;
+          &:hover {
+            background: #e07b00;
+          }
+        }
+      }
+    }
+  }
+
+  .benefits-row {
+    .meta-card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.05);
+      transition: transform .3s;
+      &:hover { transform: translateY(-5px); }
+
+      h5 {
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+      }
+    }
+  }
+}
+
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #f3f7fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  i {
+    color: #005C97;
+    font-size: 1.5rem;
+  }
+}
+
+
+/* Responsive */
+@media(max-width: 768px) {
+  .video-wrapper { height: 250px; }
+  .content-panel { border-left: none; border-top: 8px solid #ff8a00; }
+}

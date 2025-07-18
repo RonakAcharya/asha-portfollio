@@ -40,7 +40,7 @@ export class AppComponent {
   private textIndex = 0;
   private charIndex = 0;
 
-  activeSection: string = 'home';
+  activeSection: string = 'about';
 
   bgImageMap: { [key: string]: string } = {
     'about': 'about.jpg',
@@ -110,6 +110,29 @@ export class AppComponent {
   ];
 
 
+  consultingBenefits = [
+    {
+      icon: 'fas fa-lightbulb',
+      title: 'Strategy & Roadmap',
+      desc: 'Tech roadmaps tailored to your goals.'
+    },
+    {
+      icon: 'fas fa-cogs',
+      title: 'Process Optimization',
+      desc: 'Improve workflows and performance.'
+    },
+    {
+      icon: 'fas fa-shield-alt',
+      title: 'Risk Management',
+      desc: 'Minimize risk and enhance compliance.'
+    },
+    {
+      icon: 'fas fa-rocket',
+      title: 'Startup Mentoring',
+      desc: 'Scale your product with expert guidance.'
+    }
+  ];
+  
   constructor(private title: Title, private meta: Meta,private cdr: ChangeDetectorRef) {
     this.contactForm = this._fb.group({
       name: ['', Validators.required],
@@ -166,7 +189,7 @@ export class AppComponent {
 
     const scrollPosition = window.scrollY + NAVBAR_HEIGHT + 1; // Add 1 to avoid exact overlap issues
 
-    let currentSection = 'home';
+    let currentSection = 'about';
 
     for (const id of sections) {
       const el = document.getElementById(id);
@@ -184,7 +207,10 @@ export class AppComponent {
     // Group all sub-sections under 'about'
     if (['about', 'team', 'culture', 'ceo-message'].includes(currentSection)) {
       this.activeSection = 'about';
-    } else {
+    }else  if (['services', 'products', 'technologies'].includes(currentSection)) {
+      this.activeSection = 'Service';
+    }
+     else {
       this.activeSection = currentSection;
     }
   }
@@ -298,6 +324,10 @@ export class AppComponent {
 
   isAboutChildActive(): boolean {
     return ['about', 'team', 'culture', 'ceo-message'].includes(this.activeSection);
+  }
+
+  isServiceChildActive(): boolean {
+    return ['services', 'products', 'technologies'].includes(this.activeSection);
   }
 
   startAutoSlide() {
