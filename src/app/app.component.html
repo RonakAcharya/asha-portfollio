@@ -32,10 +32,10 @@
     <!-- Collapsible Menu -->
     <div class="collapse navbar-collapse justify-content-end px-3" id="navbarNav">
       <ul class="navbar-nav w-100 justify-content-end">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" [ngClass]="{ 'active-link': activeSection === 'home' }" href="#"
             (click)="selectedAboutOption = ''; closeNavbar()">Home</a>
-        </li>
+        </li> -->
 
         <!-- Company Dropdown -->
         <li class="nav-item dropdown">
@@ -52,26 +52,29 @@
           </ul>
         </li>
 
-        <li class="nav-item" *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'">
-          <a class="nav-link" [ngClass]="{'active-link': activeSection === 'services'}" href="#services"
-            (click)="closeNavbar()">Services</a>
+         <!-- Company Dropdown -->
+         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="ServicesDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false" [ngClass]="{ 'active-link': activeSection === 'Service' || isServiceChildActive() }">
+            Service
+          </a>
+          <ul class="dropdown-menu dropdown-custom" aria-labelledby="ServicesDropdown">
+            <li><a class="dropdown-item" href="#services" (click)="closeNavbar('services')">Services</a></li>
+            <li><a class="dropdown-item" href="#products" (click)="closeNavbar('products')">Products</a></li>
+            <li><a class="dropdown-item" href="#technologies" (click)="closeNavbar('technologies')">Technologies</a>
+            </li>
+          </ul>
         </li>
-        <li class="nav-item" *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'">
-          <a class="nav-link" [ngClass]="{'active-link': activeSection === 'products'}" href="#products"
-            (click)="closeNavbar()">Products</a>
-        </li>
+
+
         <li class="nav-item">
-          <a class="nav-link" [ngClass]="{'active-link': activeSection === 'technologies'}" href="#technologies"
-            (click)="closeNavbar()">Technologies</a>
-        </li>
-        <li class="nav-item" *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'">
           <a class="nav-link" [ngClass]="{'active-link': activeSection === 'projects'}" href="#projects"
             (click)="closeNavbar()">Projects</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" [ngClass]="{'active-link': activeSection === 'map'}" href="#map"
             (click)="closeNavbar()">Map</a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link" [ngClass]="{'active-link': activeSection === 'contact'}" href="#contact"
             (click)="closeNavbar()">Contact</a>
@@ -241,7 +244,7 @@
 
   <!-- Services -->
   <section id="services" class="section services container py-5"
-    *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'">
+  >
     <h2 class="text-center mb-5">Our Services</h2>
     <div class="row g-5">
       <div class="col-md-6 d-flex align-items-center" data-aos="fade-right">
@@ -282,7 +285,7 @@
 
   <!-- Products -->
   <section id="products" class="section products container py-5"
-    *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'">
+  >
     <h2 class="text-center mb-5">Our Products</h2>
     <div class="row g-5 align-items-center">
       <div class="col-lg-6 text-center" data-aos="fade-right">
@@ -353,7 +356,7 @@
   </section>
   <!-- Projects -->
   <section id="projects" class="section projects container py-5"
-    *ngIf="selectedAboutOption === '' || selectedAboutOption === 'about'">
+  >
     <h2 class="text-center mb-5">Major Projects</h2>
     <div class="row g-5">
       <div class="col-md-4 text-center" data-aos="fade-up">
@@ -410,6 +413,72 @@
     </div>
   </section>
 
+  <!-- Consulting -->
+<!-- <section id="consulting" class="section consulting container py-5" data-aos="fade-up">
+  <h2 class="text-center mb-5">Consulting Services</h2>
+
+  <div class="row g-5 align-items-center">
+    <div class="col-lg-6 text-center" data-aos="fade-right">
+      <i class="fas fa-chalkboard-teacher fa-7x text-theme"></i>
+    </div>
+
+    <div class="col-lg-6" data-aos="fade-left">
+      <h3 class="fw-bold">Expert IT & Business Consulting</h3>
+      <p>
+        We offer strategic consulting services that help businesses align their goals with the latest technologies. Whether it's digital transformation, IT audits, or enterprise architecture, we guide you at every step.
+      </p>
+      <ul class="list-unstyled">
+        <li><i class="fas fa-check text-success me-2"></i> Technology Strategy & Roadmaps</li>
+        <li><i class="fas fa-check text-success me-2"></i> Business Process Optimization</li>
+        <li><i class="fas fa-check text-success me-2"></i> Project Feasibility & Risk Analysis</li>
+        <li><i class="fas fa-check text-success me-2"></i> Startup Mentoring & Product Consulting</li>
+      </ul>
+      <a href="#contact" class="btn btn-theme mt-3">Talk to Our Experts</a>
+    </div>
+  </div>
+</section> -->
+
+<section id="consulting" class="consulting-hero section py-5" data-aos="fade-up">
+  <div class="container hero-inner">
+    <div class="row g-0 align-items-center" data-aos="fade-up">
+
+      <!-- Left: Video + Badge -->
+      <div class="col-md-6 video-col" data-aos="zoom-in-right">
+        <div class="video-badge">Consulting</div>
+        <div class="video-wrapper">
+          <video autoplay muted loop playsinline class="video-bg">
+            <source src="consult.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+
+      <!-- Right: Content -->
+      <div class="col-md-6 content-col" data-aos="fade-left">
+        <div class="content-panel shadow-soft">
+          <h2>Strategic <span class="text-accent">Consulting</span> for Growth</h2>
+          <p class="lead">From digital roadmaps to risk analysis and startup mentorship.</p>
+          <a href="#contact" class="btn btn-accent btn-lg">Talk to Our Experts</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Benefits Below -->
+    <div class="benefits-row row text-center mt-5" data-aos="fade-up">
+      <div class="col-sm-6 col-lg-3 mb-4" *ngFor="let b of consultingBenefits" data-aos="fade-up">
+        <div class="meta-card p-4" data-aos="fade-up">
+          <div class="icon-circle mb-3">
+            <i [class]="b.icon"></i>
+          </div>
+          <h5>{{ b.title }}</h5>
+          <p class="small text-muted">{{ b.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
   <!-- Contact -->
   <section id="contact" class="section contact container py-5" data-aos="fade-up">
     <h2 class="text-center mb-4">Contact Us</h2>
@@ -445,8 +514,8 @@
     <div class="text-center mt-4">
       <p>
         <i class="fas fa-phone me-2 text-theme"></i>
-        <a href="tel:8200787105" class="text-decoration-none text-reset">82007 87105</a> /
-        <a href="tel:7984817343" class="text-decoration-none text-reset">79848 17343</a>
+        <a href="tel:+919328835297" class="text-decoration-none text-reset" aria-label="Call us at +91 93288 35297">+91-9328835297</a> 
+        <!-- <a href="tel:7984817343" class="text-decoration-none text-reset">79848 17343</a> -->
       </p>
       <p>
         <i class="fas fa-envelope me-2 text-theme"></i>
@@ -463,13 +532,13 @@
         <a href="mailto:{{email}}" class="text-theme fs-4">
           <i class="fas fa-envelope"></i>
         </a>
-        <a href="https://instagram.com/3rdeyeservices" target="_blank" class="text-theme fs-4">
+        <!-- <a href="https://instagram.com/3rdeyeservices" target="_blank" class="text-theme fs-4">
           <i class="fab fa-instagram"></i>
         </a>
         <a href="https://facebook.com/3rdeyeservices" target="_blank" class="text-theme fs-4">
           <i class="fab fa-facebook"></i>
-        </a>
-        <a href="https://wa.me/918200787105" target="_blank" class="text-theme fs-4">
+        </a> -->
+        <a href="https://wa.me/919328835297" target="_blank" class="text-theme fs-4">
           <i class="fab fa-whatsapp"></i>
         </a>
       </div>
