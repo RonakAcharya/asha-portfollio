@@ -477,6 +477,7 @@ body,
       border-radius: 50%;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
       transition: transform 0.4s ease;
+      object-position: top center;
     }
 
     &:hover img {
@@ -851,4 +852,20 @@ html {
 @media(max-width: 768px) {
   .video-wrapper { height: 250px; }
   .content-panel { border-left: none; border-top: 8px solid #ff8a00; }
+}
+
+.img-transform{
+    object-fit: fill !important;
+    object-position: center !important;
+}
+
+.logo-div{
+  display: inline-flex;
+  gap: 8px;
+
+  .logo-img{
+    width: 54px;
+    height: 54px;
+    border-radius: 8px;
+  }
 }

@@ -3,16 +3,18 @@
   <!-- Header with Logo, Dark/Light Mode Toggle, and Mobile Menu -->
   <header class="navbar navbar-expand-lg navbar-dark bg-gradient fixed-top">
     <div class="container-fluid px-3 py-2 d-flex align-items-center justify-content-between">
-
       <!-- Left: Logo -->
-      <div class="text-logo">
-        <h1>
-          <span class="highlight">3<span class="rd">rd</span></span>
-          <span class="eye">Eye</span>
-          <span class="bold">Services</span>
-        </h1>
-        <div class="tagline">SERVICE BEYOND YOUR IMAGINATION</div>
-      </div>
+       <div class="logo-div">
+        <img src="logo.jpg" alt="3rd Eye Logo" class="logo-img" />
+        <div class="text-logo">
+          <h1>
+            <span class="highlight">3<span class="rd">rd</span></span>
+            <span class="eye">Eye</span>
+            <span class="bold">Services</span>
+          </h1>
+          <div class="tagline">SERVICE BEYOND YOUR IMAGINATION</div>
+        </div>
+       </div>
 
       <!-- Right: Dark Mode + Toggler -->
       <div class="d-flex align-items-center">
@@ -56,7 +58,7 @@
          <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="ServicesDropdown" role="button" data-bs-toggle="dropdown"
             aria-expanded="false" [ngClass]="{ 'active-link': activeSection === 'Service' || isServiceChildActive() }">
-            Service
+            Expertise
           </a>
           <ul class="dropdown-menu dropdown-custom" aria-labelledby="ServicesDropdown">
             <li><a class="dropdown-item" href="#services" (click)="closeNavbar('services')">Services</a></li>
@@ -178,7 +180,7 @@
       <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let member of teamMembers">
         <div class="card team-card text-center">
           <div class="team-img-wrapper">
-            <img [src]="member.image" [alt]="member.name" class="about-img" />
+            <img [src]="member.image" [alt]="member.name" class="about-img" [ngClass]="member.fixClass"  />
           </div>
           <div class="card-body">
             <h5 class="card-title mb-1">{{ member.name }}</h5>
@@ -229,13 +231,13 @@
         <p>
           Thank you for being part of our growth. Let's create smarter, scalable digital solutions—together.
         </p>
-        <h5 class="fw-bold mt-4 mb-1">– Mr. Vishal Hindocha</h5>
-        <small class="text-muted">Founder & CEO</small>
+        <h5 class="fw-bold mt-4 mb-1">– Ms. Asha Solanki</h5>
+        <small class="text-muted">CEO</small>
       </div>
 
       <!-- Image Column -->
       <div class="col-lg-5 text-center">
-        <img src="team1.jpg" alt="CEO Vishal Hindocha" class="ceo-img img-fluid rounded shadow" />
+        <img src="asha.jpg" alt="CEO Vishal Hindocha" class="ceo-img img-fluid rounded shadow" />
       </div>
 
     </div>

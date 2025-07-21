@@ -55,24 +55,29 @@ export class AppComponent {
 
   teamMembers = [
     {
-      name: 'Rahul Sharma',
-      position: 'Founder & CEO',
-      image: 'team1.jpg',
-      linkedin: 'https://linkedin.com/in/rahul',
+      name: 'Asha Solanki',
+      position: 'CEO',
+      image: 'asha.jpg',
+      // linkedin: 'https://linkedin.com/in/rahul',
       twitter: ''
     },
     {
-      name: 'Priya Mehta',
-      position: 'CTO & Architect',
-      image: 'team2.jpg',
+      name: 'Ronak Dhokiya',
+      position: 'Founder',
+      image: 'ronak.jpg',
       linkedin: '',
-      twitter: 'https://twitter.com/priyamehta'
+      fixClass: 'img-transform'
     },
     {
-      name: 'Amit Patel',
-      position: 'Marketing Lead',
-      image: 'team3.jpg',
-      linkedin: 'https://linkedin.com/in/amit',
+      name: 'Kishansinh Solanki',
+      position: 'Managing Director',
+      image: 'kishan.jpg',
+      twitter: ''
+    },
+    {
+      name: 'Ram Chauhan',
+      position: 'General Manager',
+      image: 'ram.jpg',
       twitter: ''
     }
   ];
