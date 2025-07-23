@@ -64,7 +64,7 @@ export class AppComponent {
     {
       name: 'Ronak Dhokiya',
       position: 'Founder',
-      image: 'ronak.jpg',
+      image: 'ronak2.jpg',
       linkedin: '',
       fixClass: 'img-transform'
     },
