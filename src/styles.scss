@@ -15,56 +15,94 @@ body {
   background: linear-gradient(to right, #1a1a1a, #333333, #1a1a1a) !important;
   color: white;
 }
+/* Dark Mode Root */
+.dark-mode {
+  background-color: #0b0f1a;
+  color: #f3e6d1;
+}
 
-/* Cards & Info Blocks */
+/* Navbar & Footer */
+.dark-mode .navbar, 
+.dark-mode .footer {
+  background: linear-gradient(to right, #1a1a1a, #292521, #1a1a1a);
+  color: #f3e6d1;
+}
+
+/* Section Cards */
 .dark-mode .section,
+.dark-mode .section-card,
 .dark-mode .service-card,
 .dark-mode .project-card,
 .dark-mode .culture-card,
-.dark-mode .culture-card p,
 .dark-mode .contact-info,
 .dark-mode .card,
 .dark-mode .meta-card,
-.dark-mode .meta-card p,
-.dark-mode .about-highlight-card,
-.dark-mode .about-highlight-card p {
+.dark-mode .about-highlight-card {
   background: #1e1e1e !important;
   color: #f0f0f0 !important;
   box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
 }
 
-/* Headings & Icons */
-.dark-mode .section h2,
+/* Headings & Highlights */
+.dark-mode h1, 
+.dark-mode h2, 
+.dark-mode h3, 
+.dark-mode h4,
 .dark-mode .text-theme,
-.dark-mode .fab,
-.dark-mode a i {
-  color: #00C9FF !important;
+.dark-mode .section h2
+ {
+  color: #FFD89B !important;
+  text-shadow: 0 1px 3px rgba(255, 220, 180, 0.3);
 }
 
+/* Icons */
+.dark-mode i, 
+.dark-mode .fab {
+  color: #F1C27D !important;
+}
+
+/* Paragraphs */
+.dark-mode p, 
 .dark-mode .lead,
-.dark-mode .counter,
-.dark-mode p {
-  color: white !important;
+.dark-mode .counter {
+  color: #e9d6b7 !important;
 }
 
 /* Buttons */
-.dark-mode .btn-outline-dark {
-  color: white !important;
-  border-color: white !important;
+.dark-mode .btn-theme {
+  background: linear-gradient(to right, #B78A4A, #C49A6C);
+  color: #000;
 }
 
-.dark-mode .btn-warning {
-  background-color: #00C9FF;
-  color: #000;
-  border: none;
+.dark-mode .btn-theme:hover {
+  background: linear-gradient(to right, #C49A6C, #B78A4A);
 }
-.dark-mode .content-panel p{
-  color: #000 !important;
+
+/* Toggle Theme Button */
+.dark-mode .toggle-theme-btn {
+  background: linear-gradient(to right, #B78A4A, #C49A6C);
+  color: white;
 }
-/* Hero Overlay */
-.dark-mode .hero-bg::after {
-  background: rgba(0, 0, 0, 0.3);
+
+.dark-mode .toggle-theme-btn:hover {
+  background: linear-gradient(to right, #C49A6C, #B78A4A);
 }
+
+/* Dropdowns */
+.dark-mode .dropdown-menu {
+  background-color: #2d2d2d;
+  color: #f8f0e0;
+}
+
+.dark-mode .dropdown-item {
+  color: #f1d8b3;
+}
+
+.dark-mode .dropdown-item:hover {
+  background-color: #3a2f23;
+  color: #ffdaaa;
+}
+
 
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap');
 
