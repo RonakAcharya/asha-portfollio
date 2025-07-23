@@ -864,8 +864,13 @@ html {
   gap: 8px;
 
   .logo-img{
+    // width: 54px;
+    // height: 54px;
+    // border-radius: 8px;
     width: 54px;
     height: 54px;
-    border-radius: 8px;
+    /* filter: saturate(0.5); */
+    transform: scale(3.5);
+    margin-left: 16px;
   }
 }
