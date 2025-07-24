@@ -211,7 +211,7 @@
 
 .technologies i:hover {
   transform: scale(1.2);
-  color: #005C97 !important;
+  color: #005C97;
 }
 
 .technologies h5 {
@@ -870,16 +870,14 @@ html {
     width: 54px;
     height: 54px;
     /* filter: saturate(0.5); */
-    transform: scale(3.5);
+    transform: scale(4.0);
     margin-left: 16px;
   }
 }
 
-///
-/// new theme
-/* Navbar background gradient: darker left, warm blend */
+/* --- NAVBAR --- */
 .navbar, .header {
-  background: linear-gradient(to right, #B78A4A, #C49A6C, #F1E0C2) !important; // bronze to soft gold
+  background: linear-gradient(to right, #6C3B1F 10%, #B78A4A 30%, #C49A6C 60%, #F1E0C2 100%) !important;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   padding: 0.6rem 1.2rem;
   z-index: 10;
@@ -887,29 +885,22 @@ html {
   top: 0;
 }
 
-.logo-div img {
-  max-height: 50px;
-  filter: 
-    drop-shadow(0 0 6px rgba(255, 230, 200, 0.9)) 
-    contrast(1.2) 
-    brightness(1.1) 
-    saturate(1.1) !important;
-  transform: scale(1.03);
-  transition: filter 0.3s ease, transform 0.3s ease;
+/* --- LOGO IMAGE --- */
+.logo-img {
+  height: 48px;
+  width: auto;
+  filter: drop-shadow(0 1px 1px rgba(80, 50, 20, 0.2));
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-// .logo-div img:hover {
-//   filter: 
-//     drop-shadow(0 0 10px rgba(255, 230, 180, 1)) 
-//     contrast(1.4) 
-//     brightness(1.15) 
-//     saturate(1.2);
-//   transform: scale(1.05);
-// }
+.logo-img:hover {
+  transform: scale(1.03);
+  filter: drop-shadow(0 2px 2px rgba(80, 50, 20, 0.3));
+}
 
-
+/* --- NAV LINKS --- */
 .nav-link {
-  color: #5A3E1B !important; // warm brown text
+  color: #5A3E1B !important;
   font-weight: 500;
   padding: 0.4rem 1rem;
   border-radius: 30px;
@@ -923,7 +914,6 @@ html {
   font-weight: 600;
 }
 
-/* Active nav link */
 .nav-link.active-link {
   background: linear-gradient(to right, #C49A6C, #A87435) !important;
   color: white !important;
@@ -931,6 +921,7 @@ html {
   font-weight: 700;
 }
 
+/* --- DROPDOWN --- */
 .dropdown-menu.dropdown-custom {
   background-color: #fffdf9;
   border: none;
@@ -953,6 +944,7 @@ html {
   font-weight: 600;
 }
 
+/* --- TOGGLE THEME BUTTON --- */
 .toggle-theme-btn {
   background: linear-gradient(to right, #A87435, #C49A6C);
   border: none;
@@ -971,6 +963,7 @@ html {
   box-shadow: 0 0 12px rgba(199, 151, 91, 0.3);
 }
 
+/* --- PRIMARY THEME BUTTON --- */
 .btn-theme {
   background: linear-gradient(to right, #B78A4A, #C49A6C);
   color: white;
@@ -978,7 +971,7 @@ html {
   border-radius: 30px;
   padding: 0.5rem 1.5rem;
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 3px 10px rgba(183, 138, 74, 0.25);
   transition: all 0.3s ease-in-out;
 }
 
@@ -987,27 +980,48 @@ html {
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* --- OUTLINE BUTTON --- */
+.btn-outline-theme {
+  background: transparent;
+  border: 2px solid #B78A4A;
+  color: #B78A4A;
+  border-radius: 30px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-theme:hover {
+  background: #B78A4A;
+  color: white;
+}
+
+/* --- HEADINGS / TEXT --- */
 .section h2,
 .text-theme {
   color: #B78A4A !important;
-  // font-family: 'Poppins', sans-serif;
   font-weight: 700;
 }
 
-/* All icons */
+.section h2 {
+  color: #5A3E1B;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+/* --- ICONS --- */
 .service-card i,
 .project-card i {
-  color: #5A3E1B; // deeper bronze
+  color: #5A3E1B;
   font-weight: 600;
   font-size: 1.2rem;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3); // lift icons
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
   transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 }
 
-.fab,i{
+.fab, i {
   color: #A87435 !important;
 }
-/* Hover effect */
+
 .fab:hover,
 .service-card i:hover,
 .project-card i:hover {
@@ -1015,7 +1029,7 @@ html {
   text-shadow: 0 0 6px rgba(199, 151, 91, 0.4);
 }
 
-
+/* --- TEAM IMAGE FRAME --- */
 .team-img-wrapper {
   background: linear-gradient(white, white) padding-box,
               linear-gradient(45deg, #C49A6C, #B78A4A) border-box;
@@ -1023,17 +1037,23 @@ html {
   border-radius: 12px;
 }
 
+/* --- SECTIONS --- */
 .section-card {
   background: #fffdf7;
   border-radius: 16px;
   padding: 1.5rem;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
 }
-.section h2 {
-  color: #5A3E1B; // deeper bronze
-  text-shadow: 0 1px 3px rgba(255, 220, 180, 0.3);
+
+.counted {
+  color: #A87435;
+}
+.btn-outline-theme:hover {
+  background: #B78A4A;
+  color: white;
+  box-shadow: 0 3px 8px rgba(183, 138, 74, 0.25);
 }
 
-.counted{
-  color: #A87435; // deeper bronze
+i:hover,.fab:hover{
+  color: #5A3E1B !important;
 }
